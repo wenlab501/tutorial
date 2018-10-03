@@ -1,0 +1,36 @@
+site_name: Gephi 學習站
+pages:
+- 首頁: index.md
+- 準備作業: 
+    - '下載': 'prepare/download.md'
+    - '安裝': 'prepare/install.md'
+    - '介面': 'prepare/interface.md'
+- 資料處理:
+    - '匯入': 'process/import.md'
+    - '分析': 'process/analysis.md'
+    - '過濾': 'process/filter.md'
+- 網絡設計:
+    - '佈局': 'design/layout.md'
+    - '符號': 'design/symbolization.md'
+- 存取輸出:
+    - '讀寫': 'export/save.md'
+    - '輸出': 'export/export.md'
+    - '網頁輸出-成果': 'export/web_export.md'
+    - '網頁輸出-過程': 'export/web_export_process.md'
+- 專題-FB:
+    - '下載資料': 'netvizz/download_data.md'
+    - '安裝套件': 'netvizz/install_multimode_plugin.md'
+    - '2-mode 操作': 'netvizz/two_mode.md'
+    - '過濾與設計功能的搭配使用': 'netvizz/filter_plus_appearence.md'
+    - 'mode 轉換': 'netvizz/multimode_transform.md'
+    - '1-mode 操作': 'netvizz/one_mode.md'
+    - '輸出': 'netvizz/exporting_graph.md'
+- 關於: about.md
+theme: readthedocs
+site_author: 陳威全
+site_url: http://wenlab.geog.ntu.edu.tw/gephi_tutorial
+site_description: 提供關於 Gephi 使用教學資訊。由國立臺灣大學-地理環境資源學系-地理計算科學研究室 製作。
+extra:
+    version: 1.0
+    builtdate: 2016-09-22
+copyright: 國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a>

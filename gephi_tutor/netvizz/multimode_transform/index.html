@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>mode 轉換 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "mode 轉換";
+    var mkdocs_page_input_path = "netvizz/multimode_transform.md";
+    var mkdocs_page_url = "/netvizz/multimode_transform/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/import/">匯入</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/layout/">佈局</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export_process/">網頁輸出-過程</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../filter_plus_appearence/">過濾與設計功能的搭配使用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">mode 轉換</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#2-mode-1-mode">將 2-mode 網絡轉成 1-mode 網路</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../exporting_graph/">輸出</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>專題-FB &raquo;</li>
+        
+      
+    
+    <li>mode 轉換</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="2-mode-1-mode">將 2-mode 網絡轉成 1-mode 網路</h1>
+<p>這部分將說明如何將 2-mode 轉換成 1-mode</p>
+<p>到 Data Laboratory 頁面，觀察到資料有一個欄位是 type，即前面畫圖曾用過的資料，記錄每一個節點是 post 或是 user。在右邊的 MultiMode Networks Projection 工具欄中，點 Load attributes，讓下方的下拉選單有欄位可選
+<img alt="observing 2-mode column" src="../../figs/netvizz/step_24.png" /></p>
+<p><br><br>
+選取 type 欄位
+<img alt="select the 2-mode column in toolbox" src="../../figs/netvizz/step_25.png" /></p>
+<p><br><br>
+從 github 網頁可以看到，若要產生 post-post 的共同被關注網路，則在 Left matrix 選擇 post-user，在 Right matrix 選擇 user-post。下方的 刪除節點與連線選項請打勾，這選項是讓 gephi 在轉換完成之後，刪掉多餘的節點、連線(也就是 user 節點及相關連線)
+<img alt="describing the concept of two matrixes" src="../../figs/netvizz/step_26.png" />
+若是要產生 user-user 網路，則可以反過來選 left: user-post, right: post-user</p>
+<p><br><br>
+按一下 Run 之後，可以發現 Left/Right matrix 都是 post-post。因爲 user 已經被移除了。
+<img alt="runned projection" src="../../figs/netvizz/step_27.png" /></p>
+<p><br><br>
+轉換完成的網絡，只剩下 post 之間的共同被關注網絡。
+<img alt="1 mode network" src="../../figs/netvizz/step_27_2.png" /></p>
+<p><br><br>
+<strong>請記得</strong>！ 在轉換完成後，第一件事是儲存這個網絡。這是因爲 Multimode networks projection 工具在轉換後很吃記憶體空間，轉換完成後也無法有效的釋放出空間，所以在這之後的分析操作都會有問題。
+File --&gt; Export --&gt; Graph file...
+<img alt="exporting one-mode network" src="../../figs/netvizz/step_28.png" /></p>
+<p><br><br>
+建議選擇 .gdf 檔，這檔案與 netvizz 輸出的檔案格式一樣，其他如 graphml, gml 等也都可以試試看，不過各有一些侷限性。
+<img alt="exporting one-mode network" src="../../figs/netvizz/step_28_2.png" /></p>
+<p><br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../one_mode/" class="btn btn-neutral float-right" title="1-mode 操作">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../filter_plus_appearence/" class="btn btn-neutral" title="過濾與設計功能的搭配使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../filter_plus_appearence/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../one_mode/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

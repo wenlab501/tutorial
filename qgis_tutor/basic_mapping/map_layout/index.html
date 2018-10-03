@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>地圖排版 (layout) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5730\u5716\u6392\u7248 (layout)";
+    var mkdocs_page_input_path = "basic_mapping/map_layout.md";
+    var mkdocs_page_url = "/basic_mapping/map_layout/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">地圖排版 (layout)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#layout">地圖排版 (layout)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">平面地圖編輯器</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">調整平面地圖的大小與方向</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">加入「地圖」及各項地圖元素</a></li>
+        
+            <li><a class="toctree-l4" href="#_8">調整地圖</a></li>
+        
+            <li><a class="toctree-l4" href="#_12">儲存用與輸出靜態地圖</a></li>
+        
+            <li><a class="toctree-l4" href="#_14">加入子圖、第二張地圖</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基本地圖繪製 &raquo;</li>
+        
+      
+    
+    <li>地圖排版 (layout)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="layout">地圖排版 (layout)</h1>
+<p>地圖排版是一個可以將地圖及相關元素放到地圖上的一個過程。
+QGIS 提供一個地圖排版的環境，叫做 Print Composer，主要功能是將地圖、圖例、比例尺、指北針等加入到一個平面地圖上的環境。</p>
+<p>地圖中要呈現的內容，包括點、線、面的樣式，都需要在 QGIS 主畫面作設定。Composer 只負責平面地圖的其他元素的設置。</p>
+<h2 id="_1">平面地圖編輯器</h2>
+<p>Composer 是在主畫面的 Project--&gt;New Print Composer 來打開：
+<a href="../map_layout/sop_000.png" target="_blank"> <img alt="界面000" src="../map_layout/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>跳出一個小視窗，輸入新平面地圖的地圖名稱：
+<a href="../map_layout/sop_001.png" target="_blank"> <img alt="界面001" src="../map_layout/sop_001.png" /> </a> <br />
+<br><br></p>
+<p>Composer 畫面打開，中間的主要區塊是一張白紙，平面地圖將需要設置在這張紙上：
+<a href="../map_layout/sop_002.png" target="_blank"> <img alt="界面002" src="../map_layout/sop_002.png" /> </a> <br />
+<br><br></p>
+<h2 id="_2">調整平面地圖的大小與方向</h2>
+<p><strong>這一步非常重要</strong><br />
+在設計平面地圖的第一步是，設定好預計要出圖的紙張大小與方向，在右邊欄位的 Composition 的第一個區塊中，Presets 中可以選定常用的紙張大小，如預設是 A4(也可以進一步用 Custom 進行客製化修改)；Orientation選 Potrait 或 Landscape：
+<a href="../map_layout/sop_002-5.png" target="_blank"> <img alt="界面002" src="../map_layout/sop_002-5.png" /> </a> <br />
+如果地圖預計是要設計並放在海報中，可以依據海報的大小進行設置(如 A0、A1等)；若是預計要放在書面報告中，例如放在 A4 的報告中，則可以設置成 A4 或 A5。
+如果是準備期刊用的地圖且橫放，建議可以用 A5 大小進行設計；後續可依照期刊要求進行大小的調整。</p>
+<p>這一步非常重要的原因是，若將一張設計成 A4 大小的地圖靜態圖檔放到海報中拉大，會發生一些視覺上的變化，包括線會變粗等，導致地圖質感下降；
+反之，若將一張設計成 A0 大小的地圖靜態圖檔，放到 A4 中(縮小)，則會發生另一些視覺上的變化，包括原來看起來粗細剛好的線會變得非常細等，地圖整體質感會變差。
+<br><br></p>
+<h2 id="_3">加入「地圖」及各項地圖元素</h2>
+<h3 id="_4">加入「地圖」</h3>
+<p>在平面地圖的紙張中，加入「地圖」是指加入在 QGIS 主畫面中所看見的圖層。</p>
+<p>在右邊的工具中，選擇Add new map 按鈕，然後在紙張上畫一個預計要放地圖的範圍：
+<a href="../map_layout/sop_003.png" target="_blank"> <img alt="界面003" src="../map_layout/sop_003.png" /> </a> <br />
+<br><br></p>
+<h3 id="_5">加入圖例</h3>
+<p>圖例提供地圖上的各項圖層的樣式的資訊。</p>
+<p>加入圖例的方式是透過點選左邊的 Add new legend 按鈕，在紙張上畫一個放圖例的範圍：
+<a href="../map_layout/sop_004.png" target="_blank"> <img alt="界面004" src="../map_layout/sop_004.png" /> </a> <br />
+<br><br></p>
+<p>然後圖例就出現了，可以透過左邊第三個按鈕的工具來進行拖拽移動到適當位置：
+<a href="../map_layout/sop_005.png" target="_blank"> <img alt="界面005" src="../map_layout/sop_005.png" /> </a> <br />
+<br><br></p>
+<h3 id="_6">加入比例尺</h3>
+<p>比例尺提供的資訊是地圖中的長度代表地表長度的比例資訊。</p>
+<p>加入比例尺的方式是在左邊工具中，點選 Add new scalebar，然後在地圖紙張上點一下：
+<a href="../map_layout/sop_006.png" target="_blank"> <img alt="界面006" src="../map_layout/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>比例尺就產生好了，在選擇比例尺的情況下，可以試著調整右邊比例尺欄位中的設定，包客左2、右3 表示比例尺的兩種距離長度：
+<a href="../map_layout/sop_007.png" target="_blank"> <img alt="界面007" src="../map_layout/sop_007.png" /> </a> <br />
+<br><br></p>
+<h3 id="_7">加入文字</h3>
+<p>可以加入一些文字來補充說明地圖的資訊，包括常看見的文字說明包括地圖的投影系統、製作日期、製作人員等。</p>
+<p>在左邊點 Add new label：
+<a href="../map_layout/sop_017.png" target="_blank"> <img alt="界面017" src="../map_layout/sop_017.png" /> </a> <br />
+<br><br></p>
+<p>在地圖適當的地方畫一個矩形，然後在右邊 Label 底下輸入要寫的文字：
+<a href="../map_layout/sop_018.png" target="_blank"> <img alt="界面018" src="../map_layout/sop_018.png" /> </a> <br />
+<br><br></p>
+<h2 id="_8">調整地圖</h2>
+<h3 id="_9">調整範圍</h3>
+<p>先點選地圖，然後點左邊工具的 Move item content 按鈕：
+<a href="../map_layout/sop_008.png" target="_blank"> <img alt="界面008" src="../map_layout/sop_008.png" /> </a> <br />
+<br><br></p>
+<p>這時候可以按著地圖進行拖拽移動，也可以透過滑鼠滾輪進行縮放：
+<a href="../map_layout/sop_009.png" target="_blank"> <img alt="界面009" src="../map_layout/sop_009.png" /> </a> <br />
+<br><br></p>
+<p>不過如果是縮放範圍，建議用右邊的Map 底下的 Scale 直接進行設定：
+<a href="../map_layout/sop_010.png" target="_blank"> <img alt="界面010" src="../map_layout/sop_010.png" /> </a> <br />
+<br><br></p>
+<h3 id="_10">加入地圖邊框</h3>
+<p>在右邊 Map 底下的 Frame 左邊的框框點選標記(按一下出現 X 表示啟用)：
+<a href="../map_layout/sop_011.png" target="_blank"> <img alt="界面011" src="../map_layout/sop_011.png" /> </a> <br />
+<br><br></p>
+<h3 id="_11">加入地圖格線</h3>
+<p>同樣是 Map 底下，找到 Grids，按一下 + 號的按鈕：
+<a href="../map_layout/sop_012.png" target="_blank"> <img alt="界面012" src="../map_layout/sop_012.png" /> </a> <br />
+<br><br></p>
+<p>在Draw "Grid 1" grid 中的 Interval 分別設置 X與Y方向的格線間隔
+<a href="../map_layout/sop_013.png" target="_blank"> <img alt="界面013" src="../map_layout/sop_013.png" /> </a> <br />
+<br><br></p>
+<p>可以選擇是否加入格線的數值，若需要，標記 Draw coordinates，並進行相關呈現的設定：
+<a href="../map_layout/sop_014.png" target="_blank"> <img alt="界面014" src="../map_layout/sop_014.png" /> </a> <br />
+<br><br></p>
+<p>設置好後放大地圖來看結果 (在 move item content 以外的環境)：
+<a href="../map_layout/sop_015.png" target="_blank"> <img alt="界面015" src="../map_layout/sop_015.png" /> </a> <br />
+<br><br></p>
+<p>設置好平面地圖的排版：
+<a href="../map_layout/sop_019.png" target="_blank"> <img alt="界面019" src="../map_layout/sop_019.png" /> </a> <br />
+<br><br></p>
+<h2 id="_12">儲存用與輸出靜態地圖</h2>
+<p>設置好後，可以點一下 Save project 來暫存整個地圖(包括主畫面內容與 composer)：
+<a href="../map_layout/sop_020.png" target="_blank"> <img alt="界面020" src="../map_layout/sop_020.png" /> </a> <br />
+<br><br></p>
+<h3 id="_13">輸出靜態地圖</h3>
+<p>Composer--&gt;Export as Image...
+<a href="../map_layout/sop_021.png" target="_blank"> <img alt="界面021" src="../map_layout/sop_021.png" /> </a> <br />
+<br><br></p>
+<p>選好路徑及輸入檔名：
+<a href="../map_layout/sop_022.png" target="_blank"> <img alt="界面022" src="../map_layout/sop_022.png" /> </a> <br />
+<br><br></p>
+<p>點儲存(Save) 後，會出現另一個小視窗，詢問關於輸出的選項，可以使用預設的 300 dpi 等設定：
+<a href="../map_layout/sop_023.png" target="_blank"> <img alt="界面023" src="../map_layout/sop_023.png" /> </a> <br />
+300 dpi 是地圖輸出(期刊、海報)最基本的大小設置。
+<br><br></p>
+<p>完成地圖輸出，這張地圖較前一節直接輸出的結果來說，多了比例尺、圖例等資訊：
+<a href="../map_layout/sop_024.png" target="_blank"> <img alt="界面024" src="../map_layout/sop_024.png" /> </a> <br />
+<br><br></p>
+<h2 id="_14">加入子圖、第二張地圖</h2>
+<p>子圖是既有地圖上的一張小圖，用以表示目前這地圖範圍所呈現的範圍是相對於更大的一個範圍內的哪個區塊。</p>
+<p>先確認目前這張圖的圖層是鎖起來的，即後續調整地圖範圍不會修改這張圖的範圍：
+<a href="../map_layout/sop_025.png" target="_blank"> <img alt="界面025" src="../map_layout/sop_025.png" /> </a> <br />
+<br><br></p>
+<p>在左邊工具中，使用 Add new map 工具，在適當的地方畫一個小區塊：
+<a href="../map_layout/sop_026.png" target="_blank"> <img alt="界面026" src="../map_layout/sop_026.png" /> </a> <br />
+<br><br></p>
+<p>透過Windows 工作中軟體中，回到主畫面；將其他複雜的資訊取消掉 (即子圖所要呈現的樣式)：
+<a href="../map_layout/sop_027.png" target="_blank"> <img alt="界面027" src="../map_layout/sop_027.png" /> </a> <br />
+<br><br></p>
+<p>再回到 composer 視窗，點右邊的 Update preview，再透過 move item content 調整子圖的範圍與大小：
+<a href="../map_layout/sop_028.png" target="_blank"> <img alt="界面028" src="../map_layout/sop_028.png" /> </a> <br />
+<br><br></p>
+<p>在左邊工具中選 Add Shape--&gt;Add Rectangle，然後在子圖上適當的地方畫一個矩形：
+<a href="../map_layout/sop_029.png" target="_blank"> <img alt="界面029" src="../map_layout/sop_029.png" /> </a> <br />
+<br><br></p>
+<p>在點選矩形的情況下，點右邊的 Shape 底下的properties 的 Style 右邊的 Change...；在這個小視窗設定好Fill 為 No Brush：
+<a href="../map_layout/sop_030.png" target="_blank"> <img alt="界面030" src="../map_layout/sop_030.png" /> </a> <br />
+<br><br></p>
+<p>矩形的塗色被拿掉了：
+<a href="../map_layout/sop_031.png" target="_blank"> <img alt="界面031" src="../map_layout/sop_031.png" /> </a> <br />
+<br><br></p>
+<p>再打開同一個小視窗，這回把 Outline 的顏色改成紅色：
+<a href="../map_layout/sop_032.png" target="_blank"> <img alt="界面032" src="../map_layout/sop_032.png" /> </a> <br />
+<br><br></p>
+<p>子圖設計好了：
+<a href="../map_layout/sop_033.png" target="_blank"> <img alt="界面033" src="../map_layout/sop_033.png" /> </a> <br />
+<br><br></p>
+<p>這是輸出成品：
+<a href="../map_layout/sop_034.png" target="_blank"> <img alt="界面034" src="../map_layout/sop_034.png" /> </a> <br />
+<br><br></p>
+<p>PS:<br />
+若有後續放到向量圖編輯器，例如 Adobe Illustrator / Inkscape 之類進行地圖點進一步後製的需求，可以試著輸出成 .svg (Composer--&gt;Export as SVG)。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../intermediate_mapping/" class="btn btn-neutral float-right" title="統計地圖繪製-目錄">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../export_map/" class="btn btn-neutral" title="地圖輸出 (export)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../export_map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../intermediate_mapping/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>過濾與設計功能的搭配使用 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "過濾與設計功能的搭配使用";
+    var mkdocs_page_input_path = "netvizz/filter_plus_appearence.md";
+    var mkdocs_page_url = "/netvizz/filter_plus_appearence/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/import/">匯入</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/layout/">佈局</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export_process/">網頁輸出-過程</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">過濾與設計功能的搭配使用</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">過濾與設計的搭配使用</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multimode_transform/">mode 轉換</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../exporting_graph/">輸出</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>專題-FB &raquo;</li>
+        
+      
+    
+    <li>過濾與設計功能的搭配使用</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">過濾與設計的搭配使用</h1>
+<p>這部分要說明的是如何針對部分節點作呈現樣式的調整。以下例子是針對 post (文) 的大小作調整，同時不改變 user 的大小。
+<br></p>
+<p>首先，對所有節點設成同樣的大小，一般會先設定成更小的值(例如：4)
+<img alt="network index tool" src="../../figs/netvizz/steps2/03.png" />
+<br><br></p>
+<p>在右手邊的工具欄中，切換到 Filter 頁籤，在底下的樹狀圖中選擇 Attributes--&gt;Equal，然後找到 Type (欄位，記錄每一個節點是什麼樣的節點)，將 Type 拉到下面的空間去。
+<img alt="network index tool" src="../../figs/netvizz/steps2/04.png" />
+<br><br></p>
+<p>在下面的空間會出現這些選項。在 Equal Settings 下的欄位，輸入 post (要選擇的值，若要過濾出使用者則輸入 user)，點 OK 按鈕之後，點 Filter 按鈕開始過濾。
+<img alt="network index tool" src="../../figs/netvizz/steps2/05.png" />
+<br><br></p>
+<p>中間的網路圖只剩下過濾下來的節點。這時候可以開始設定這些節點的大小。在左邊的工具欄，切換到 Nodes--&gt;Ranking，選擇欄位名稱(Degree)，設定最小及最大的大小。按 Apply 後，過濾後的節點的大小被調整了。<br />
+最後，點 Stop 暫停、完成過濾，以顯示所有節點。
+<img alt="network index tool" src="../../figs/netvizz/steps2/06.png" />
+<br><br></p>
+<p>完成。
+<img alt="network index tool" src="../../figs/netvizz/steps2/07.png" />
+<br><br></p>
+<p><br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../multimode_transform/" class="btn btn-neutral float-right" title="mode 轉換">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../two_mode/" class="btn btn-neutral" title="2-mode 操作"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../two_mode/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../multimode_transform/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

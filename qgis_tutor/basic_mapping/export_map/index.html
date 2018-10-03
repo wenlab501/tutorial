@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>地圖輸出 (export) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5730\u5716\u8f38\u51fa (export)";
+    var mkdocs_page_input_path = "basic_mapping/export_map.md";
+    var mkdocs_page_url = "/basic_mapping/export_map/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">地圖輸出 (export)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#export">地圖輸出 (export)</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基本地圖繪製 &raquo;</li>
+        
+      
+    
+    <li>地圖輸出 (export)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="export">地圖輸出 (export)</h1>
+<p>地圖輸出有兩種層次，第一種是直接將 QGIS 主畫面所看到的地圖直接輸出成靜態圖檔(.png/.svg之類) ，另一種是進一步<a href="../../map_layout">用 composer 繪製成獨立完整的地圖</a>。</p>
+<p>以下將說明如何直接輸出主畫面的地圖。</p>
+<p>主畫面準備好後，在工具欄的 Project--&gt;Save as Image...
+<a href="../export_map/sop_000.png" target="_blank"> <img alt="界面000" src="../export_map/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>在跳出來的小視窗移動到要儲存的資料夾並輸入儲存檔名：
+<a href="../export_map/sop_001.png" target="_blank"> <img alt="界面001" src="../export_map/sop_001.png" /> </a> <br />
+<br><br></p>
+<p>按下儲存(Save)後完成，打開圖檔，是主畫面當下的地圖：
+<a href="../export_map/sop_002.png" target="_blank"> <img alt="界面002" src="../export_map/sop_002.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../map_layout/" class="btn btn-neutral float-right" title="地圖排版 (layout)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dot_map/" class="btn btn-neutral" title="點子圖 (dot)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../dot_map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../map_layout/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

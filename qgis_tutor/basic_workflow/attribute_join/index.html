@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>屬性的連結 (join) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5c6c\u6027\u7684\u9023\u7d50 (join)";
+    var mkdocs_page_input_path = "basic_workflow/attribute_join.md";
+    var mkdocs_page_url = "/basic_workflow/attribute_join/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">屬性的連結 (join)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#join">屬性的連結 (join)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">資料</a></li>
+        
+            <li><a class="toctree-l4" href="#qgis">將表單資料匯入 QGIS 中</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">觀察並確認連結的依據欄位：</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">連結表單</a></li>
+        
+            <li><a class="toctree-l4" href="#-countycode">問題一 - 有些縣市的 COUNTYCODE 不完整：</a></li>
+        
+            <li><a class="toctree-l4" href="#-csv">問題二 - 有些縣市的在 csv 不完整：</a></li>
+        
+            <li><a class="toctree-l4" href="#csv">設定好 csv 的欄位的資料格式</a></li>
+        
+            <li><a class="toctree-l4" href="#join_1">將 Join 好的空間圖層匯出 + 修改匯出後的欄位名稱：</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">刪除不必要欄位</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>介面介紹 &raquo;</li>
+        
+      
+    
+    <li>屬性的連結 (join)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="join">屬性的連結 (join)</h1>
+<p>屬性的連結是一個很常進行的操作過程。概念上是，有一個空間圖層資料，例如縣市資料；另一方面有一個表單，表單內容的每一筆(row)是一個個縣市，欄位包含了其他空間圖層資料所沒有的屬性資料 (例如外籍配偶數之類)。這時候需要讓 QGIS 幫我們將這些表單中的資料依縣市連結到空間圖層的屬性資料中。</p>
+<p>這過程順利的話很快就完成了，但常常會遇到一些狀況，以下舉一些常出現的疑難雜症及其對應的解決方案供大家參考。</p>
+<p>以下用<a href="../../static/taiwan_county.zip">縣市資料</a> 以及<a href="../../static/foreign_marriage.zip">外籍配偶的csv</a> 作說明。</p>
+<h2 id="_1">資料</h2>
+<p>縣市資料：
+<a href="../attribute_join/sop_000.png" target="_blank"><img alt="界面000" src="../attribute_join/sop_000.png" /></a><br />
+<br><br></p>
+<p>待連結的表單資料：
+<a href="../attribute_join/sop_001.png" target="_blank"><img alt="界面001" src="../attribute_join/sop_001.png" /></a><br />
+<br><br></p>
+<h2 id="qgis">將表單資料匯入 QGIS 中</h2>
+<p>將表單資料 (csv) 匯入的方法主要是點左邊的逗號：
+<a href="../attribute_join/sop_002.png" target="_blank"><img alt="界面002" src="../attribute_join/sop_002.png" /></a><br />
+<br><br></p>
+<p>選到 csv 檔案：
+<a href="../attribute_join/sop_003.png" target="_blank"><img alt="界面003" src="../attribute_join/sop_003.png" /></a><br />
+<br><br></p>
+<p>這時候發現一個問題，就是 讀進來的檔案中的中文變成亂碼：
+<a href="../attribute_join/sop_004.png" target="_blank"><img alt="界面004" src="../attribute_join/sop_004.png" /></a><br />
+<br><br></p>
+<p>透過右邊的下拉選單(Encoding)，選到 Big5 (以這個檔案為例)：
+<a href="../attribute_join/sop_005.png" target="_blank"><img alt="界面005" src="../attribute_join/sop_005.png" /></a><br />
+<br><br></p>
+<p>這時候中文字就可以看得到了，不過看起來還無法按確認：
+<a href="../attribute_join/sop_006.png" target="_blank"><img alt="界面006" src="../attribute_join/sop_006.png" /></a><br />
+<br><br></p>
+<p>這是因為目前的匯入過程並沒有告訴 QGIS 這檔案的空間資訊(geometry)。因為這個表單中沒有空間資訊(例如經緯度)，所以要宣導 No geometry (無幾何資訊)，然後就可以按 OK 確認匯入：
+<a href="../attribute_join/sop_007.png" target="_blank"><img alt="界面007" src="../attribute_join/sop_007.png" /></a><br />
+直接將 csv 檔拖拽到圖層的位置雖然也可以匯入，不過這時候 QGIS 會預設使用者是在加入圖層，所以這時候軟體會當作這個資料中都是「字串」。以我們的例子是要將外籍配偶人數(也就是整數資料)匯入，所以不能用這種方式，而應該用上面建議的方法。
+<br><br></p>
+<h2 id="_2">觀察並確認連結的依據欄位：</h2>
+<p>打開屬性表：
+<a href="../attribute_join/sop_008.png" target="_blank"><img alt="界面008" src="../attribute_join/sop_008.png" /></a><br />
+<br><br></p>
+<p>看起來 csv 的「縣市代碼」欄位是縣市的 ID：
+<a href="../attribute_join/sop_009.png" target="_blank"><img alt="界面009" src="../attribute_join/sop_009.png" /></a><br />
+<br><br></p>
+<p>再打開縣市圖層的屬性表，看起來 「COUNTYCODE」 是一樣的縣市 ID： 
+<a href="../attribute_join/sop_010.png" target="_blank"><img alt="界面010" src="../attribute_join/sop_010.png" /></a><br />
+這時候發現一個問題，就是縣市圖層的中文字是亂碼，所以以下稍微調整圖層的 encoding。
+<br><br></p>
+<p>來到圖層的 properties：
+<a href="../attribute_join/sop_011.png" target="_blank"><img alt="界面011" src="../attribute_join/sop_011.png" /></a><br />
+<br><br></p>
+<p>在 Data source encoding 的部分，改成 Big5:
+<a href="../attribute_join/sop_012.png" target="_blank"><img alt="界面012" src="../attribute_join/sop_012.png" /></a><br />
+<br><br></p>
+<p>看起來中文是沒問題了：
+<a href="../attribute_join/sop_013.png" target="_blank"><img alt="界面013" src="../attribute_join/sop_013.png" /></a><br />
+<br><br></p>
+<h2 id="_3">連結表單</h2>
+<p>連結表單的地方在 圖層的 properties，進入 Joins 分頁：
+<a href="../attribute_join/sop_014.png" target="_blank"><img alt="界面014" src="../attribute_join/sop_014.png" /></a><br />
+<br><br></p>
+<p>點一下下方的「 + 」號按鈕，然後在 Join layer 選擇剛剛匯入的 csv，Join field 是 csv 中的連結欄位， Target field 則是圖層的連結欄位。點開 Choose which fields are joined，這裡示範的是將所有 csv 中的欄位都連結到圖層中：
+<a href="../attribute_join/sop_015.png" target="_blank"><img alt="界面015" src="../attribute_join/sop_015.png" /></a><br />
+<br><br></p>
+<p>再打開圖層的屬性表，連結這個動作算是完成了：
+<a href="../attribute_join/sop_016.png" target="_blank"><img alt="界面016" src="../attribute_join/sop_016.png" /></a><br />
+不過還有一些問題，以下分別說明。
+<br><br></p>
+<h2 id="-countycode">問題一 - 有些縣市的 COUNTYCODE 不完整：</h2>
+<p>這部分看起來是圖層的 COUNTYCODE 不知道什麼時候發生問題，在臺北市、臺中市等，6字開頭的代碼都只剩兩位數字：
+<a href="../attribute_join/sop_016.png" target="_blank"><img alt="界面016" src="../attribute_join/sop_016.png" /></a><br />
+<br><br></p>
+<p>觀察一下 csv 表單，這些地方的代碼後面有 3個0:
+<a href="../attribute_join/sop_017.png" target="_blank"><img alt="界面017" src="../attribute_join/sop_017.png" /></a><br />
+<br><br></p>
+<p>所以要修正圖層的屬性表中的代碼：
+<a href="../attribute_join/sop_018.png" target="_blank"><img alt="界面018" src="../attribute_join/sop_018.png" /></a><br />
+<br><br></p>
+<p>打開編輯模式：
+<a href="../attribute_join/sop_019.png" target="_blank"><img alt="界面019" src="../attribute_join/sop_019.png" /></a><br />
+<br><br></p>
+<p>在COUNTYCODE 的各個需要修正的代碼，點兩下，然後加入 “000”：
+<a href="../attribute_join/sop_020.png" target="_blank"><img alt="界面020" src="../attribute_join/sop_020.png" /></a><br />
+<br><br></p>
+<p>就像這樣：
+<a href="../attribute_join/sop_021.png" target="_blank"><img alt="界面021" src="../attribute_join/sop_021.png" /></a><br />
+<br><br></p>
+<p>修正好這樣：
+<a href="../attribute_join/sop_022.png" target="_blank"><img alt="界面022" src="../attribute_join/sop_022.png" /></a><br />
+<br><br></p>
+<p>儲存編輯：
+<a href="../attribute_join/sop_023.png" target="_blank"><img alt="界面023" src="../attribute_join/sop_023.png" /></a><br />
+<br><br></p>
+<p>關閉編輯模式：
+<a href="../attribute_join/sop_024.png" target="_blank"><img alt="界面024" src="../attribute_join/sop_024.png" /></a><br />
+<br><br></p>
+<p>習慣上，先把原本的 Join 給關掉：
+<a href="../attribute_join/sop_026.png" target="_blank"><img alt="界面026" src="../attribute_join/sop_026.png" /></a><br />
+<br><br></p>
+<p>再重新 Join 一次：
+<a href="../attribute_join/sop_027.png" target="_blank"><img alt="界面027" src="../attribute_join/sop_027.png" /></a><br />
+<br><br></p>
+<p>套用，確認：
+<a href="../attribute_join/sop_028.png" target="_blank"><img alt="界面028" src="../attribute_join/sop_028.png" /></a><br />
+<br><br></p>
+<p>原本那些臺中市等地區都 Join 好了：
+<a href="../attribute_join/sop_029.png" target="_blank"><img alt="界面029" src="../attribute_join/sop_029.png" /></a><br />
+但還有另一些問題，兩個外島Join不到。
+<br><br></p>
+<h2 id="-csv">問題二 - 有些縣市的在 csv 不完整：</h2>
+<p>這邊看起來外島的 COUNTYCODE 前面有 0，這在 csv 或 excel 表單中可能會少了這種在前面的 0:
+<a href="../attribute_join/sop_029.png" target="_blank"><img alt="界面029" src="../attribute_join/sop_029.png" /></a><br />
+<br><br></p>
+<p>觀察 csv 的代碼，果然是前面少了 0:
+<a href="../attribute_join/sop_030.png" target="_blank"><img alt="界面030" src="../attribute_join/sop_030.png" /></a><br />
+不過這時候沒辦法直接在 qgis 中作修改，需要到文字編輯器來處理。
+<br><br></p>
+<p>先把 Join 移除：
+<a href="../attribute_join/sop_031.png" target="_blank"><img alt="界面031" src="../attribute_join/sop_031.png" /></a><br />
+<br><br></p>
+<p>先把匯入的表單也關掉：
+<a href="../attribute_join/sop_032.png" target="_blank"><img alt="界面032" src="../attribute_join/sop_032.png" /></a><br />
+<br><br></p>
+<p>從文字編輯器打開，然後補上 0：
+<a href="../attribute_join/sop_033.png" target="_blank"><img alt="界面033" src="../attribute_join/sop_033.png" /></a><br />
+<br><br></p>
+<p>補完之後，儲存並關掉：
+<a href="../attribute_join/sop_034.png" target="_blank"><img alt="界面034" src="../attribute_join/sop_034.png" /></a><br />
+<br><br></p>
+<p>試著重新匯入：
+<a href="../attribute_join/sop_035.png" target="_blank"><img alt="界面035" src="../attribute_join/sop_035.png" /></a><br />
+<br><br></p>
+<p>把 csv 的表單打開來看看，卻發現縣市代碼沒有被修正好：
+<a href="../attribute_join/sop_036.png" target="_blank"><img alt="界面036" src="../attribute_join/sop_036.png" /></a><br />
+這問題很常見，是因為這個欄位都是數字， QGIS 自動將這個欄位當作是整數(Interger)，可是這欄位應該要是文字(String)。以下說明如何先給定 csv 各個欄位的資料格式。
+<br><br></p>
+<p>先將這表單關掉：
+<a href="../attribute_join/sop_037.png" target="_blank"><img alt="界面037" src="../attribute_join/sop_037.png" /></a><br />
+<br><br></p>
+<h2 id="csv">設定好 csv 的欄位的資料格式</h2>
+<p>產生一個文字檔：
+<a href="../attribute_join/sop_038.png" target="_blank"><img alt="界面038" src="../attribute_join/sop_038.png" /></a><br />
+<br><br></p>
+<p>文字檔的檔名跟 csv 要一樣，副檔名要改成 .csvt：
+<a href="../attribute_join/sop_039.png" target="_blank"><img alt="界面039" src="../attribute_join/sop_039.png" /></a><br />
+<br><br></p>
+<p>因為從 .txt 改成 .csvt ，所以 Windows 會提醒並向你確認「你真的要作這樣的修改嗎」，點確認：
+<a href="../attribute_join/sop_040.png" target="_blank"><img alt="界面040" src="../attribute_join/sop_040.png" /></a><br />
+<br><br></p>
+<p>這時候可以同時打開 csv 檔及 csvt 檔案，然後一個個將欄位的資料格式寫入，例如：
+<a href="../attribute_join/sop_041.png" target="_blank"><img alt="界面041" src="../attribute_join/sop_041.png" /></a><br />
+其中，String 表示這欄是文字，Integer 表示是 整數， Real 表示是實數(包括小數位數)。用英文的雙引號包起來，然後用逗點分隔。
+<br><br></p>
+<p>csv 中總共有 9個欄位，所以這檔案也要有 9個資料格式：
+<a href="../attribute_join/sop_042.png" target="_blank"><img alt="界面042" src="../attribute_join/sop_042.png" /></a><br />
+完成後，儲存，關閉。
+<br><br></p>
+<p>再一次匯入 csv 檔：
+<a href="../attribute_join/sop_043.png" target="_blank"><img alt="界面043" src="../attribute_join/sop_043.png" /></a><br />
+<br><br></p>
+<p>一樣的設定：
+<a href="../attribute_join/sop_044.png" target="_blank"><img alt="界面044" src="../attribute_join/sop_044.png" /></a><br />
+<br><br></p>
+<p>打 csv 的開屬性表，這時候可以發現代碼欄位是靠左的，表示是文字格式，兩個 rows 前面的 0 也出現了：
+<a href="../attribute_join/sop_045.png" target="_blank"><img alt="界面045" src="../attribute_join/sop_045.png" /></a><br />
+<br><br></p>
+<p>再一次進行 Join：
+<a href="../attribute_join/sop_046.png" target="_blank"><img alt="界面046" src="../attribute_join/sop_046.png" /></a><br />
+<br><br></p>
+<p><a href="../attribute_join/sop_047.png" target="_blank"><img alt="界面047" src="../attribute_join/sop_047.png" /></a><br />
+<br><br></p>
+<p><a href="../attribute_join/sop_048.png" target="_blank"><img alt="界面048" src="../attribute_join/sop_048.png" /></a><br />
+<br><br></p>
+<p><a href="../attribute_join/sop_049.png" target="_blank"><img alt="界面049" src="../attribute_join/sop_049.png" /></a><br />
+<br><br></p>
+<p>這時候金門連江的問題都解決了：
+<a href="../attribute_join/sop_050.png" target="_blank"><img alt="界面050" src="../attribute_join/sop_050.png" /></a><br />
+<br><br></p>
+<h2 id="join_1">將 Join 好的空間圖層匯出 + 修改匯出後的欄位名稱：</h2>
+<p>對 Join 好的圖層點右鍵，選 Save as...
+<a href="../attribute_join/sop_051.png" target="_blank"><img alt="界面051" src="../attribute_join/sop_051.png" /></a><br />
+<br><br></p>
+<p>確認 Format 是 ESRI Shapefile：
+<a href="../attribute_join/sop_052.png" target="_blank"><img alt="界面052" src="../attribute_join/sop_052.png" /></a><br />
+若需要選其他類型的輸出檔案，也可以在這調整，例如 Geojson 之類。確認好匯出圖層的位置與檔名，以及 Encoding、投影座標系統等之後，就可以按 OK 確認匯出。
+<br><br></p>
+<h3 id="_4">修改欄位名稱</h3>
+<p>匯出完成後，可以發現預設是修改了 Join 的欄位名稱：
+<a href="../attribute_join/sop_053.png" target="_blank"><img alt="界面053" src="../attribute_join/sop_053.png" /></a><br />
+跟原來 Join 的圖層(未匯出) 比對，可以發現這些預設的欄位名稱其實順序跟原來 Join 好是一樣的。
+<br><br></p>
+<p>對匯出的圖層點右鍵， Properties：
+<a href="../attribute_join/sop_054.png" target="_blank"><img alt="界面054" src="../attribute_join/sop_054.png" /></a><br />
+<br><br></p>
+<p>去到 Field 分頁，點那隻筆的按鈕進入編輯模式：
+<a href="../attribute_join/sop_055.png" target="_blank"><img alt="界面055" src="../attribute_join/sop_055.png" /></a><br />
+<br><br></p>
+<p>在這裡，可以直接對欄位名稱點兩下，進行欄位名稱的修改：
+<a href="../attribute_join/sop_056.png" target="_blank"><img alt="界面056" src="../attribute_join/sop_056.png" /></a><br />
+<br><br></p>
+<p>照著順序修改好後，可以再點一次那隻筆，結束編輯模式：
+<a href="../attribute_join/sop_057.png" target="_blank"><img alt="界面057" src="../attribute_join/sop_057.png" /></a><br />
+<br><br></p>
+<p>點儲存編輯：
+<a href="../attribute_join/sop_058.png" target="_blank"><img alt="界面058" src="../attribute_join/sop_058.png" /></a><br />
+<br><br></p>
+<p>這時候可以點套用、確認來完成欄位名稱的編輯：
+<a href="../attribute_join/sop_059.png" target="_blank"><img alt="界面059" src="../attribute_join/sop_059.png" /></a><br />
+<br><br></p>
+<p>再次打開匯出後的圖層，欄位名稱已修正：
+<a href="../attribute_join/sop_060.png" target="_blank"><img alt="界面060" src="../attribute_join/sop_060.png" /></a><br />
+<br><br></p>
+<h2 id="_5">刪除不必要欄位</h2>
+<p>發現有兩個欄位是重複的，這是前面在 Join 的時候為了確認而特意留下的，不過這時候已經確認 Join 沒問題，所以可以將他們刪除。打開編輯模式：
+<a href="../attribute_join/sop_061.png" target="_blank"><img alt="界面061" src="../attribute_join/sop_061.png" /></a><br />
+<br><br></p>
+<p>點工具欄中，倒數第三個，有紅色的按鈕：
+<a href="../attribute_join/sop_062.png" target="_blank"><img alt="界面062" src="../attribute_join/sop_062.png" /></a><br />
+<br><br></p>
+<p>將從 csv 連結過來而產生的縣市名稱與代碼選取，並點 OK確認：
+<a href="../attribute_join/sop_063.png" target="_blank"><img alt="界面063" src="../attribute_join/sop_063.png" /></a><br />
+<br><br></p>
+<p>那兩個欄位就被刪除了：
+<a href="../attribute_join/sop_064.png" target="_blank"><img alt="界面064" src="../attribute_join/sop_064.png" /></a><br />
+<br><br></p>
+<p>點儲存編輯：
+<a href="../attribute_join/sop_065.png" target="_blank"><img alt="界面065" src="../attribute_join/sop_065.png" /></a><br />
+<br><br></p>
+<p>結束編輯模式：
+<a href="../attribute_join/sop_066.png" target="_blank"><img alt="界面066" src="../attribute_join/sop_066.png" /></a><br />
+<br><br></p>
+<p>完成整個 Join + 匯出圖層 + 欄位修正 + 欄位刪除的動作：
+<a href="../attribute_join/sop_067.png" target="_blank"><img alt="界面067" src="../attribute_join/sop_067.png" /></a><br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../auto_zoom/" class="btn btn-neutral float-right" title="自動縮放 (zoom)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../attribute_manipulations/" class="btn btn-neutral" title="屬性的操作 (attributes)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../attribute_manipulations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../auto_zoom/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>投影 (projection) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6295\u5f71 (projection)";
+    var mkdocs_page_input_path = "basic_workflow/projection_basic.md";
+    var mkdocs_page_url = "/basic_workflow/projection_basic/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">投影 (projection)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#projection">投影 (projection)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">確認資料集的座標系統</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">設定地圖的投影系統</a></li>
+        
+            <li><a class="toctree-l4" href="#otf">關閉自動投影 (OTF)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>介面介紹 &raquo;</li>
+        
+      
+    
+    <li>投影 (projection)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="projection">投影 (projection)</h1>
+<p>投影系統是 GIS 最關鍵的一個概念架構。</p>
+<p>這邊簡單的說明一下，在操作上，投影資訊在GIS操作所需要注意的事項。基本上，在繪製一張地圖，有兩個座標系統需要確定與設定：</p>
+<ol>
+<li>第一個是空間資料的座標系統。每一個空間資料集，都是在一個特定的座標系統下所記錄。以點資料為例，每一個點的座標值 (X,Y) 可能記錄的是經緯度(WGS84, EPSG:4326) ，或可能是經過投影的座標值，例如台灣常用的 TWD97(EPSG:3826) 等。</li>
+<li>另一個是目前這張地圖要用哪一種投影進行繪製的投影系統。地圖的投影系統可以跟資料的座標系統的投影不同，例如，我們可能會有一個座標系統為 WGS84 經緯度的全球城市點資料，但我們可能會想畫一張以台灣為中心(控制點)的正方位等距投影 (Azimuthal Equidistant Projection)，呈現從台灣到每一個城市的距離。這時候 QGIS 地圖的投影系統可以設定成適當的投影系統，然後 QGIS 會自動將點的經緯度轉成地圖的座標系統值。</li>
+</ol>
+<p>因此，在繪製一張地圖時，需要記得確認這兩件事，一是資料集本身的座標系統，二是準備要繪製的地圖的投影系統。以台灣常用的地圖來說，通常資料集的座標系統都已經轉換成常用的 TWD97，然後 QGIS 在匯入第一個檔案的時候自動用這第一個檔案的系統作為地圖的投影系統。但也要注意有時候所取得的資料集的座標系統可能是 WGS84  或是 TWD67。</p>
+<h2 id="_1">確認資料集的座標系統</h2>
+<p>以下用全球陸地作為距離的圖層。</p>
+<p>在左下角圖層列表中，對這圖層點右鍵選 properties，或點兩下：<br />
+<a href="../projection_basic/sop_000.png" target="_blank"> <img alt="界面000" src="../projection_basic/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>打開圖層的屬性界面，選到第一個分頁 (General)，其中第二個大項是 Coordinate reference system (crs)，其中會顯示這個圖層的 crs，如果跟你所知道的不一樣，或是顯示為 undefined，則點其右方的按鈕，會出現這個頁面：
+<a href="../projection_basic/sop_001.png" target="_blank"> <img alt="界面001" src="../projection_basic/sop_001.png" /> </a> <br />
+在這頁面的最上方，可以用關鍵字來找到你所需要找到的投影系統，例如 輸入4326 可以找到 WGS84 之類。選好適當的座標系統後，點 OK 確認。
+<br><br></p>
+<h2 id="_2">設定地圖的投影系統</h2>
+<p>回到主畫面，從 QGIS 右下角的那顆小地球(其右方顯示目前的投影系統，以這個圖層為例，QGIS 自動選定了 EPSG:4326)。此外，出現的小標籤說明，現在的 OTF 是沒有啟動的。點下去：<br />
+<a href="../projection_basic/sop_002.png" target="_blank"> <img alt="界面002" src="../projection_basic/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>會出現類似前面看到的視窗，這時候右邊的框框整個是呈淡灰色的，這是因為 OTF 沒有啟動。對其最上面的格子按一下點開 OTF：<br />
+<a href="../projection_basic/sop_003.png" target="_blank"> <img alt="界面003" src="../projection_basic/sop_003.png" /> </a> <br />
+<br><br></p>
+<p>點開後，頁面變得可以被點選。選好所要的投影系統後 (以下面的例子來說，是以北極為中心的正方位等距投影)，下面的欄位會出現相應的投影參數，點下方的套用 (Apply)及 OK：
+<a href="../projection_basic/sop_004.png" target="_blank"> <img alt="界面004" src="../projection_basic/sop_004.png" /> </a> <br />
+<br><br></p>
+<p>然後，地圖的形狀就改變了。這張地圖是以北極為中心的正方位等距投影的樣子：<br />
+<a href="../projection_basic/sop_005.png" target="_blank"> <img alt="界面005" src="../projection_basic/sop_005.png" /> </a> <br />
+<br><br></p>
+<h2 id="otf">關閉自動投影 (OTF)</h2>
+<p>再次點開剛剛的視窗：<br />
+<a href="../projection_basic/sop_006.png" target="_blank"> <img alt="界面006" src="../projection_basic/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>取消 OTF 的格子內的標記(應該是一個X)，讓畫面變淡灰色：<br />
+<a href="../projection_basic/sop_007.png" target="_blank"> <img alt="界面007" src="../projection_basic/sop_007.png" /> </a> <br />
+<br><br></p>
+<p>然後點套用與OK之後回到地圖，這時候會又回到 WGS84 的樣子：<br />
+<a href="../projection_basic/sop_008.png" target="_blank"> <img alt="界面008" src="../projection_basic/sop_008.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../encoding/" class="btn btn-neutral float-right" title="中文編碼 (encoding)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../insert_layer/" class="btn btn-neutral" title="加入向量圖層 (import)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../insert_layer/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../encoding/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

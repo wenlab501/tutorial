@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>輸出 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "輸出";
+    var mkdocs_page_input_path = "netvizz/exporting_graph.md";
+    var mkdocs_page_url = "/netvizz/exporting_graph/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/import/">匯入</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/layout/">佈局</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export_process/">網頁輸出-過程</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../filter_plus_appearence/">過濾與設計功能的搭配使用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multimode_transform/">mode 轉換</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">輸出</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">靜態輸出</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">準備輸出</a></li>
+                
+                    <li><a class="toctree-l4" href="#png">輸出 png</a></li>
+                
+                    <li><a class="toctree-l4" href="#illustrator-inkscape">輸出向量圖檔作爲 Illustrator / Inkscape 等軟體作加工</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>專題-FB &raquo;</li>
+        
+      
+    
+    <li>輸出</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">靜態輸出</h1>
+<p>輸出靜態圖檔</p>
+<h2 id="_2">準備輸出</h2>
+<p>點開 Preview 頁面，一般來說會使空白的，按一下 Refresh，右邊的網絡才會出現
+<img alt="choose and install" src="../../figs/netvizz/step_37.png" /></p>
+<p><br><br></p>
+<p>試着點開 Node Labels (Show Labels 打勾)，限制 label 長度(Shorten label 打勾)，長度 (max characters 改成 20)；線的部分，取消 curve (拿掉原來的勾)。調整完成後，再按一次 Refresh。
+<img alt="choose and install" src="../../figs/netvizz/step_38.png" /></p>
+<p><br><br></p>
+<h2 id="png">輸出 png</h2>
+<p><img alt="choose and install" src="../../figs/netvizz/step_39.png" />
+1. 左下角的 Export: SVG/PDF/PNG
+2. 鍵入輸出檔名
+3. 點 Options...
+4. 提高解析度
+5. 點 OK 確認 Options
+6. 點 Save 正式輸出
+<br><br></p>
+<p>打開輸出檔案
+<img alt="choose and install" src="../../figs/netvizz/step_40.png" /></p>
+<p><br><br></p>
+<h2 id="illustrator-inkscape">輸出向量圖檔作爲 Illustrator / Inkscape 等軟體作加工</h2>
+<p><img alt="choose and install" src="../../figs/netvizz/step_41.png" /></p>
+<p><br><br></p>
+<p>點開並選擇向量的平面設計軟體
+<img alt="choose and install" src="../../figs/netvizz/step_42.png" /></p>
+<p><br><br></p>
+<p>可以發現，圖層已分成三組，這是因爲在前述設定的時候，有要畫出節點 label、節點、及連線，所以分成三個圖層。
+<img alt="choose and install" src="../../figs/netvizz/step_43.png" /></p>
+<p><br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../about/" class="btn btn-neutral float-right" title="關於">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../one_mode/" class="btn btn-neutral" title="1-mode 操作"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../one_mode/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>呈現空間流動 (FlowMapper) -- 繪製流動 - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5448\u73fe\u7a7a\u9593\u6d41\u52d5 (FlowMapper) -- \u7e6a\u88fd\u6d41\u52d5";
+    var mkdocs_page_input_path = "advance_mapping/flow_map_2.md";
+    var mkdocs_page_url = "/advance_mapping/flow_map_2/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#flowmapper-">呈現空間流動 (FlowMapper) -- 繪製流動</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">工具</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">設定產生流動網絡的參數</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">定義圖層的投影座標系統</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">調整網絡</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">繪製出圖</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>進階地圖繪製 &raquo;</li>
+        
+      
+    
+    <li>呈現空間流動 (FlowMapper) -- 繪製流動</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="flowmapper-">呈現空間流動 (FlowMapper) -- 繪製流動</h1>
+<p>FlowMapper 的主要功能在於讀入 OD矩陣資料，以及點位資料；然後產生兩個圖層，一個是線圖層，記錄流動的大小規模，另一個則是點圖層，會自動算出點的流入、流出的量，及其比例。</p>
+<p>以下底圖用<a href="../../static/104Demography_Taipei_Village97.zip">臺北市(點擊下載)</a>在作呈現。</p>
+<h2 id="_1">工具</h2>
+<p>使用的套件是 FlowMapper，請確認已用 <a href="../introduction/plugins_management">套件安裝</a> 的方式完成安裝動作：
+<a href="../flow_map/sop_000.png" target="_blank"> <img alt="界面000" src="../flow_map/sop_000.png" /> </a> <br />
+<br><br></p>
+<h2 id="_2">設定產生流動網絡的參數</h2>
+<p>資料是台北地區的捷運流動，因此背景先放入一個臺北市分區圖。
+在安裝了 FlowMapper 套件後，可以到 Plugins--&gt;FlowMapper--&gt;Generate flow lines and nodes，進入製作流動網絡的視窗：
+<a href="../flow_map/sop_021.png" target="_blank"> <img alt="界面021" src="../flow_map/sop_021.png" /> </a> <br />
+<br><br></p>
+<p>這視窗中有一些需要設定的東西：第一項是記錄點資料的檔案路徑，其下方的 coordinates are 請選擇 Cartesian，因為這資料是已投影過的；在Select file storing flow matrix 的欄位選擇前面準備好的 OD矩陣文字檔，flow type 選用 Net； 接下來的 Output 欄位選一個輸出線圖層的路徑與檔名；再下來的格子要標選，再往下的欄位填入點的輸出路徑與檔名。後面的這幾個格子都點選起來：
+<a href="../flow_map/sop_022.png" target="_blank"> <img alt="界面022" src="../flow_map/sop_022.png" /> </a> <br />
+<br><br></p>
+<p>在 OK、Cancel 上方有一個 Single Symbol 下拉選單，將選項改成 Equal Interval，然後 No. of classes 填入 5，表示要將流量分成 5 組：
+<a href="../flow_map/sop_023.png" target="_blank"> <img alt="界面023" src="../flow_map/sop_023.png" /> </a> <br />
+<br><br></p>
+<p>最後，確認設定都沒問題了，點 OK 開始執行：
+<a href="../flow_map/sop_024.png" target="_blank"> <img alt="界面024" src="../flow_map/sop_024.png" /> </a> <br />
+<br><br></p>
+<p>然後會挑出兩個視窗，這個視窗表示 線圖層已產生：
+<a href="../flow_map/sop_025.png" target="_blank"> <img alt="界面025" src="../flow_map/sop_025.png" /> </a> <br />
+<br><br></p>
+<p>這表示點圖層已產生：
+<a href="../flow_map/sop_026.png" target="_blank"> <img alt="界面026" src="../flow_map/sop_026.png" /> </a> <br />
+<br><br></p>
+<h2 id="_3">定義圖層的投影座標系統</h2>
+<p>不過，上述點、線的產生過程並沒有指定產生的圖層的投影系統，因此這裡需要<a href="../../../basic_workflow/projection_basic/#_1">自行設定</a>：
+<a href="../flow_map/sop_027.png" target="_blank"> <img alt="界面027" src="../flow_map/sop_027.png" /> </a> <br />
+<br><br></p>
+<p>以範例來說，要設定成 TWD 97 投影系統 (EPSG:3828)
+<a href="../flow_map/sop_028.png" target="_blank"> <img alt="界面028" src="../flow_map/sop_028.png" /> </a> <br />
+<br><br></p>
+<p>確認好點的投影後，點圖層就回到這些捷運站應該在的地方了：
+<a href="../flow_map/sop_029.png" target="_blank"> <img alt="界面029" src="../flow_map/sop_029.png" /> </a> <br />
+<br><br></p>
+<p>一樣的，對新產生的線圖層也作一樣的投影系統的定義：
+<a href="../flow_map/sop_030.png" target="_blank"> <img alt="界面030" src="../flow_map/sop_030.png" /> </a> <br />
+<br><br></p>
+<p>線也回來了，不過這時候的網絡(幾乎)是全網絡：
+<a href="../flow_map/sop_031.png" target="_blank"> <img alt="界面031" src="../flow_map/sop_031.png" /> </a> <br />
+全網絡看起來會過度複雜， 可能會導致視覺上沒有意義。
+<br><br></p>
+<h2 id="_4">調整網絡</h2>
+<p>這時候需要處理的是把流量最低的數層給移除掉，因為這些線段上的移動量很低，繪製出來可能並沒有多大的意義。
+處理方式是，在左邊圖層列表中，線圖層底下將最低的那組旁邊的標記給取消掉：
+<a href="../flow_map/sop_032.png" target="_blank"> <img alt="界面032" src="../flow_map/sop_032.png" /> </a> <br />
+<br><br></p>
+<p>上圖看起來還是有點複雜，因此再把第二高的組給取消掉：
+<a href="../flow_map/sop_033.png" target="_blank"> <img alt="界面033" src="../flow_map/sop_033.png" /> </a> <br />
+<br><br></p>
+<p>目前看起來相對較好了：
+<a href="../flow_map/sop_034.png" target="_blank"> <img alt="界面034" src="../flow_map/sop_034.png" /> </a> <br />
+<br><br></p>
+<h2 id="_5">繪製出圖</h2>
+<p>用 <a href="../../../basic_mapping/map_layout">composer 的工具</a> 來繪製出圖：
+<a href="../flow_map/sop_035.png" target="_blank"> <img alt="界面035" src="../flow_map/sop_035.png" /> </a> <br />
+<br><br></p>
+<p>加入地圖、圖例、並設定好圖例資訊、以及比例尺，這地圖初步完成：
+<a href="../flow_map/sop_036.png" target="_blank"> <img alt="界面036" src="../flow_map/sop_036.png" /> </a> <br />
+<br><br></p>
+<p>這是初步成品圖：
+<a href="../flow_map/sop_037.png" target="_blank"> <img alt="界面037" src="../flow_map/sop_037.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../basic_analysis/" class="btn btn-neutral float-right" title="圖資處理-目錄">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../flow_map/" class="btn btn-neutral" title="呈現空間流動 (FlowMapper) -- 資料準備"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../flow_map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../basic_analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

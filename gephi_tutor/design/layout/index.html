@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>佈局 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "佈局";
+    var mkdocs_page_input_path = "design/layout.md";
+    var mkdocs_page_url = "/design/layout/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/import/">匯入</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">佈局</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#layout">網絡的佈局 (Layout)</a></li>
+                
+                    <li><a class="toctree-l4" href="#geo-layout">Geo-Layout</a></li>
+                
+                    <li><a class="toctree-l4" href="#frutherman-reingold">Frutherman-Reingold</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">放寬 &amp; 濃縮</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export_process/">網頁輸出-過程</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/filter_plus_appearence/">過濾與設計功能的搭配使用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/multimode_transform/">mode 轉換</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/exporting_graph/">輸出</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>網絡設計 &raquo;</li>
+        
+      
+    
+    <li>佈局</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="layout">網絡的佈局 (Layout)</h1>
+<p>網絡的佈局，其實是指如何將節點散佈在繪圖的空間中。透過各種演算法，以讓節點可以依據某些規則來分佈。網絡中節點可能是各種物件，並不一定具有固定的地理位置。
+Gephi 提供的佈局方式主要包括以下幾種，詳情請參考<a href="https://gephi.org/users/tutorial-layouts/" target="blank">官網的說明</a>：</p>
+<ul>
+<li>Geo-Layout: 其實是根據經緯度來繪製，這部分比較沒有網絡的演算法。</li>
+<li>Frutherman-Reingold (force directed layout algorithm, spring layout): <a href="https://en.wikipedia.org/wiki/Force-directed_graph_drawing" target="blank"> 參考資訊 </a></li>
+<li>Force Atlas2: <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679" target="blank"> 參考資訊 </a></li>
+<li>OpenOrd: <a href="https://www.researchgate.net/publication/253087985_OpenOrd_An_Open-Source_Toolbox_for_Large_Graph_Layout" target="blank"> 參考資訊 </a></li>
+</ul>
+<p><br><br></p>
+<h2 id="geo-layout">Geo-Layout</h2>
+<ol>
+<li>在左邊欄位的 Layout 底下的下拉選單中，點選 Geo Layout。  </li>
+<li>在 Latitude 選擇 緯度欄位 (lat), 在 Longitude 下拉選單選 經度欄位 (lng)， Projection(投影) 部分則選擇一個適當的投影方式。</li>
+<li>點 Run 執行，中間的網路預覽會出現節點根據經緯度分佈的網路。
+<img alt="下載" src="../../figs/step_23.png" /><br />
+<br><br></li>
+</ol>
+<h2 id="frutherman-reingold">Frutherman-Reingold</h2>
+<p>操作過程很簡單，就直接在 Layout 底下的下拉選單點選 Frutherman-Reingold， 按 Run 執行。其他 佈局方式也是類似操作，參數部分則隨意測試。
+<img alt="下載" src="../../figs/step_44.png" /><br />
+<br><br></p>
+<h2 id="_1">放寬 &amp; 濃縮</h2>
+<p>在有一些情況下，上述各種佈局演算法所產生的佈局結果可能會出現節點之間太靠近的狀況，這時候需要「放寬」(Expansion)；有時候節點之間空隙太大，這時候需要的是「濃縮」(Contraction)。<br />
+<img alt="下載" src="../../figs/step_46.png" /><br />
+<br><br></p>
+<p>點選了 Expansion 之後， Scale factor 設定大概在 1.2 左右，點 Run 看放寬結果是否滿意。若需要進一步放寬，則再點一次 Run 即可。<br />
+<img alt="下載" src="../../figs/step_47.png" /><br />
+<br><br>
+反之，在 Contraction 部分，則需要將 Scale factor 設定在 0.8 左右。<br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../symbolization/" class="btn btn-neutral float-right" title="符號">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../process/filter/" class="btn btn-neutral" title="過濾"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../process/filter/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../symbolization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

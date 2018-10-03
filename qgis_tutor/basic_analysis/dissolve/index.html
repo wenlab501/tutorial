@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>依欄位合併(dissolve) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f9d\u6b04\u4f4d\u5408\u4f75(dissolve)";
+    var mkdocs_page_input_path = "basic_analysis/dissolve.md";
+    var mkdocs_page_url = "/basic_analysis/dissolve/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">依欄位合併(dissolve)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#dissolve">依欄位合併(dissolve)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">全部合併成一個面</a></li>
+        
+            <li><a class="toctree-l4" href="#dissolve-with-stats">使用 Dissolve with stats 套件</a></li>
+        
+            <li><a class="toctree-l4" href="#spatial-join-dissolve">先產生鄉鎮點，再以 spatial join 到 dissolve 的面圖層</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>圖資處理 &raquo;</li>
+        
+      
+    
+    <li>依欄位合併(dissolve)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dissolve">依欄位合併(dissolve)</h1>
+<p>Dissolve 是一個很常會進行的一個動作，概念上是將一個 面圖層，依據某一個欄位進行合併。例如，對鄉鎮圖層，依據縣市欄位來進行合併。或是將整個研究區進行合併，例如把所有縣市合併成台灣的海岸線。</p>
+<p>QGIS 的 dissolve 有一些問題，主要是在處理統計資訊上，不過如果並沒有要應用這些統計值(例如是為了產生縣市面的邊界，來源的鄉鎮的統計數值並不會被用到的情況下)，則不成問題。</p>
+<p>若是需要在 dissolve 時，也依據欄位來將統計數值進行加總、平均等動作，建議使用下方介紹的 套件 <a href="https://plugins.qgis.org/plugins/DissolveWithStats/">Dissolve with stats</a>。套件的安裝方式請參考<a href="../../../introduction/plugins_management">套件安裝</a>。若無法使用，也可以透過下面介紹的方法來達到同樣的目的。</p>
+<p>以下主要用<a href="../../static/twn_population.zip">鄉鎮人口資料(點擊下載)</a>作說明如何從鄉鎮加總到縣市。</p>
+<h2 id="_1">全部合併成一個面</h2>
+<p>下列說明的是如何從 鄉鎮合併成臺灣的海岸線。</p>
+<p>QGIS 自帶的 Dissolve 工具在 Vector--&gt;Geoprocessing Tools--&gt;Dissolve
+<a href="../dissolve/sop_000.png" target="_blank"> <img alt="界面000" src="../dissolve/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>視窗是這個樣子，其中 Input layer 選要 dissolve 的來源圖層；其下方的 Dissolve all (do not use field) 標記起來則表示將所有面都合併成一個面；在 Dissolved 欄位，點後面的 ... 按鈕：
+<a href="../dissolve/sop_001.png" target="_blank"> <img alt="界面001" src="../dissolve/sop_001.png" /> </a> <br />
+<br><br></p>
+<p>選擇輸出的路徑及檔案名稱：
+<a href="../dissolve/sop_002.png" target="_blank"> <img alt="界面002" src="../dissolve/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>這 Dissolve 過程可能會需要很長時間，請耐心等候：
+<a href="../dissolve/sop_003.png" target="_blank"> <img alt="界面003" src="../dissolve/sop_003.png" /> </a> <br />
+<br><br></p>
+<p>Dissolve 成果是一個只有一個面的台灣圖層：
+<a href="../dissolve/sop_004.png" target="_blank"> <img alt="界面004" src="../dissolve/sop_004.png" /> </a> <br />
+<br><br></p>
+<h2 id="dissolve-with-stats">使用 Dissolve with stats 套件</h2>
+<p>確認 Dissolve with stats 套件已安裝：
+<a href="../dissolve/sop_010.png" target="_blank"> <img alt="界面010" src="../dissolve/sop_010.png" /> </a> <br />
+<br><br></p>
+<p>安裝好後，可以到 Vector--&gt;Dissolve with stats--&gt;Dissolve with stats 來打開 dissolve 視窗：
+<a href="../dissolve/sop_011.png" target="_blank"> <img alt="界面011" src="../dissolve/sop_011.png" /> </a> <br />
+<br><br></p>
+<p>這視窗很簡單，第一個欄位項目是來源圖層的選項；第二個選項是要依據哪一個欄位進行合併，這裡選的是縣市ID；接下來的表單是讓使用者勾選「哪些欄位要留下來」，及「如何處理這些統計量」的地方。要留下的需要在 keep 標記，然後在後面 stat 的地方選擇如何計算這個統計量：
+<a href="../dissolve/sop_012.png" target="_blank"> <img alt="界面012" src="../dissolve/sop_012.png" /> </a> <br />
+<br><br></p>
+<p>例如，年輕人口與老年人口數要用加的：
+<a href="../dissolve/sop_013.png" target="_blank"> <img alt="界面013" src="../dissolve/sop_013.png" /> </a> <br />
+<br><br></p>
+<p>再下來的欄位是設定輸出的路徑及檔名：
+<a href="../dissolve/sop_015.png" target="_blank"> <img alt="界面015" src="../dissolve/sop_015.png" /> </a> <br />
+<br><br></p>
+<p>按下 OK 後，等一下，就處理好了：
+<a href="../dissolve/sop_016.png" target="_blank"> <img alt="界面016" src="../dissolve/sop_016.png" /> </a> <br />
+<br><br></p>
+<p>這是透過套件進行的 dissolve 的屬性表：
+<a href="../dissolve/sop_031.png" target="_blank"> <img alt="界面030" src="../dissolve/sop_031.png" /> </a> <br />
+<br><br></p>
+<h2 id="spatial-join-dissolve">先產生鄉鎮點，再以 spatial join 到 dissolve 的面圖層</h2>
+<p>假如在較舊、或未來的 QGIS 版本中，上述 Dissolve with stats 套件不能用的情況下，且 QGIS 未提供統計量的 dissolve 處理方式，則可以選擇用這種轉個彎的方式。概念很簡單，就是先將鄉鎮資料進行兩件事，一件事是 dissolve 得到縣市的面資料；另一件事是產生 <a href="../polygon_to_centroid">centroid</a>，因為 centroid 會繼承所有原來的面的資料的屬性。在完成上述兩件事後，接下來可以將 centroid 圖層依照空間 join 到縣市的面資料上，因為在 join 的過程 QGIS 會讓使用者決定是否要、及要如何處理多點對一面情況下，計算其統計量 (例如加總、平均、計次等)。</p>
+<h3 id="dissolve_1">以 dissolve 產生縣市面圖層</h3>
+<p>方法與前述產生台灣海岸線的方法類似：
+<a href="../dissolve/sop_005.png" target="_blank"> <img alt="界面005" src="../dissolve/sop_005.png" /> </a> <br />
+<br><br></p>
+<p>在這需要注意的是， Dissolve all 的標記需要取消掉；在 Unique ID field 可以跟前面一樣選擇 COUNTY_ID：
+<a href="../dissolve/sop_007.png" target="_blank"> <img alt="界面007" src="../dissolve/sop_007.png" /> </a> <br />
+<br><br></p>
+<p>確認設定好後，開始執行：
+<a href="../dissolve/sop_008.png" target="_blank"> <img alt="界面008" src="../dissolve/sop_008.png" /> </a> <br />
+<br><br></p>
+<p>取得一個縣市面圖層資料：
+<a href="../dissolve/sop_009.png)" target="_blank"> <img alt="界面009" src="../dissolve/sop_009.png" />  </a>  .
+這面圖層的屬性表中的數值，是預設成會取得來源資料中的第一筆COUNTY_ID屬於各個面的那筆來當作是 dissolve 後的屬性，在處理縣市名稱時沒有問題，不過在統計量時，我們常會用到的是將其加總。
+<br><br></p>
+<h3 id="centroid">產生 centroid</h3>
+<p>這步驟很簡單，請參考 <a href="../polygon_to_centroid">centroid 章節</a>
+<a href="../dissolve/sop_018.png" target="_blank"> <img alt="界面018" src="../dissolve/sop_018.png" /> </a> <br />
+<br><br></p>
+<h3 id="spatial-join">spatial join</h3>
+<p>空間 join 的工具是在 Vector--&gt;Data Management Tools--&gt;Join attributes by location：
+<a href="../dissolve/sop_018.png" target="_blank"> <img alt="界面018" src="../dissolve/sop_018.png" /> </a> <br />
+<br><br></p>
+<p>這是 join 的視窗。目標圖層是 Dissolved (前面準備的縣市面圖層)；Join vector layer 是 centroid 圖層；幾何關係的確認方法是 intersects (應該是落在面中的點，因此兩者必然在空間結構上相交)；Attribute summary 的部分輸入 「sum」 就好，其他方法可以刪除掉，因為在這個範例中，有意義的只有人數加總的值。：
+<a href="../dissolve/sop_019.png" target="_blank"> <img alt="界面019" src="../dissolve/sop_019.png" /> </a> <br />
+<br><br></p>
+<p>將視窗往下移，會在 Joined table 的底下有一個 Joined layer，這裡填寫輸出的路徑與檔名：
+<a href="../dissolve/sop_020.png" target="_blank"> <img alt="界面020" src="../dissolve/sop_020.png" /> </a> <br />
+<br><br></p>
+<p>確認完成後，點 Run 執行：
+<a href="../dissolve/sop_021.png" target="_blank"> <img alt="界面021" src="../dissolve/sop_021.png" /> </a> <br />
+<br><br></p>
+<p>執行中：
+<a href="../dissolve/sop_022.png" target="_blank"> <img alt="界面022" src="../dissolve/sop_022.png" /> </a> <br />
+<br><br></p>
+<h3 id="_2">合併後的屬性表</h3>
+<p>QGIS 會自動在檔名的前面加上 sum 字樣，這些是透過 join 而產生的欄位，在屬性表的偏前面區域會有透過dissolve 來的欄位，應該需要刪除掉：
+<a href="../dissolve/sop_023.png" target="_blank"> <img alt="界面023" src="../dissolve/sop_023.png" /> </a> <br />
+屬性表的最後有一個 count 欄位，是 join 過程中，被 join 進來的點有幾筆。
+<br><br></p>
+<p>透過<a href="../../../basic_workflow/attribute_manipulations">屬性表的計算</a>，把縣市的老化指數給計算好：
+<a href="../dissolve/sop_028.png" target="_blank"> <img alt="界面028" src="../dissolve/sop_028.png" /> </a> <br />
+<br><br></p>
+<p>用<a href="../../../basic_mapping/choropleth_map">分層設色圖</a> 把縣市人口老化指數上色到面：
+<a href="../dissolve/sop_029.png" target="_blank"> <img alt="界面029" src="../dissolve/sop_029.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../about/" class="btn btn-neutral float-right" title="關於">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../polygon_to_centroid/" class="btn btn-neutral" title="面資料找中心點(centroid)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../polygon_to_centroid/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

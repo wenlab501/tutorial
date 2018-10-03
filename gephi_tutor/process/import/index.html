@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>匯入 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "匯入";
+    var mkdocs_page_input_path = "process/import.md";
+    var mkdocs_page_url = "/process/import/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">匯入</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">匯入</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">資料準備</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">匯入過程</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/layout/">佈局</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../export/web_export_process/">網頁輸出-過程</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/filter_plus_appearence/">過濾與設計功能的搭配使用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/multimode_transform/">mode 轉換</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/exporting_graph/">輸出</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>資料處理 &raquo;</li>
+        
+      
+    
+    <li>匯入</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">匯入</h1>
+<p>準備好 節點及連線的 csv 檔，匯入 Gephi 製作網絡。
+以下以從 Worldbank 下載的國家間遷移資料，整合 透過批次定位(arcgis/google)後產生的國家經緯度資料，製作網路。 
+遷移資料來源： <a href="http://data.worldbank.org/data-catalog/global-bilateral-migration-database" target="blank">Worldbank</a></p>
+<h2 id="_2">資料準備</h2>
+<p>節點資料 (country_node.csv)，是國家(遷移單位)，以下是欄位說明：  </p>
+<ul>
+<li>id (必須): 必須爲 unique，即沒有兩個節點有同樣的 id，用作對應連線兩端資訊  </li>
+<li>label: 作爲網路呈現時，顯示在節點上的 label  </li>
+<li>lng: 節點的經度</li>
+<li>lat: 節點的緯度</li>
+<li>address: 定位用(國家名)</li>
+<li>status: 定位結果</li>
+</ul>
+<p><img alt="匯入" src="../../figs/step_12.png" /><br />
+<br><br></p>
+<p>連線資料(migration_edge.csv)，是國家間的遷移流量，這裏用的是 2000年的資料：  </p>
+<ul>
+<li>eid: 連線的 id</li>
+<li>Year/Year Code: 年份資訊</li>
+<li>source (必須): 連線的起點 id</li>
+<li>target (必須): 連線的端點 id</li>
+<li>Country Origin Code / Country Dest Code: 來源與目的地國家代碼</li>
+<li>Weight: 網路分析中用以作爲連線權重的分析資訊，這資料中是用總流量作爲權重</li>
+<li>Total / Female / Male: 總流量、男性流量、女性流量，男女性流量資料不完整，有一些國家只有總流量資料</li>
+<li>dist1 / dist2: 兩點之間的最短距離(大圓航線)，會有一些出入(因計算的解析度不同)</li>
+</ul>
+<p><img alt="匯入" src="../../figs/step_13.png" /><br />
+<br><br></p>
+<h2 id="_3">匯入過程</h2>
+<p>在第二分頁內，點選 Import Spreadsheet，選取 節點檔案 (country_node.csv)，點打開<br />
+<img alt="匯入" src="../../figs/step_14.png" /><br />
+<br><br></p>
+<p>確定資料選對了之後，按下一步<br />
+<img alt="匯入" src="../../figs/step_15.png" /><br />
+<br><br></p>
+<p>Import settings 中，往下拉，找到 lng 及 lat，在下拉選單中選擇 Double (應該在 String 的上面)，按完成<br />
+<img alt="匯入" src="../../figs/step_16.png" /><br />
+<br><br></p>
+<p>節點資料表出現已匯入的資料表，再選一次 Import Spreadsheet<br />
+<img alt="匯入" src="../../figs/step_17.png" /><br />
+<br><br></p>
+<p>這次選取連線的檔案 (migration_edge.csv)<br />
+<img alt="匯入" src="../../figs/step_18.png" /><br />
+<br><br></p>
+<p>確定資料選對了之後，按下一步<br />
+<img alt="匯入" src="../../figs/step_19.png" /><br />
+<br><br></p>
+<p>Import settings 中，往下拉，找到可能會用來畫顏色的欄位，在下拉選單中選擇 Double，並且確認 Create missing nodes 左邊的空格 <strong>不要打勾</strong> ，最後按完成<br />
+<img alt="匯入" src="../../figs/step_20.png" /><br />
+<br><br></p>
+<p>回到 Overview 分頁，可以看到一團分佈呈方形的網路出現<br />
+<img alt="匯入" src="../../figs/step_21.png" /><br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../analysis/" class="btn btn-neutral float-right" title="分析">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../prepare/interface/" class="btn btn-neutral" title="介面"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../prepare/interface/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

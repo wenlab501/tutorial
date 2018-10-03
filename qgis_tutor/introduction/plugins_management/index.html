@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>套件安裝 (plugins) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5957\u4ef6\u5b89\u88dd (plugins)";
+    var mkdocs_page_input_path = "introduction/plugins_management.md";
+    var mkdocs_page_url = "/introduction/plugins_management/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../environment/">基本環境</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">套件安裝 (plugins)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#plugins">套件安裝 (plugins)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">套件管理</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>入門基礎 &raquo;</li>
+        
+      
+    
+    <li>套件安裝 (plugins)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="plugins">套件安裝 (plugins)</h1>
+<p>除了 官方QGIS 所自帶的各種常用工具之外，也可以透過各種套件(Plugins) 使用非官方、由社群(community) 所編寫的其他工具。
+本教學將應用其中的 3個套件：</p>
+<ul>
+<li>Cartogram: 進階地圖繪製的變形地圖</li>
+<li>Flowmapper: 透過OD矩陣與起迄點位置，繪製流動網絡</li>
+<li>Dissolve with stats: 依照欄位進行資料合併，同時計算統計量的變化(加總、平均、取第一筆之類)</li>
+</ul>
+<h2 id="_1">套件管理</h2>
+<p>在上方工具欄中，找到 Plugins --&gt; Manage and Install Plugins...<br />
+<a href="../plugins_management/sop_000.png" target="_blank"> <img alt="界面000" src="../plugins_management/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>點開後，會出現一個正在載入的視窗，就讓他跑一下：<br />
+<a href="../plugins_management/sop_001.png" target="_blank"> <img alt="界面001" src="../plugins_management/sop_001.png" /> </a> <br />
+<br><br></p>
+<p>然後會出現套件管理的視窗，其左邊有一欄是分頁(tab)，包括所有(All)、已安裝的套件(Installed)、未安裝(Not installed) 等；右邊最上面是搜尋套件的地方，可以輸入關鍵字：<br />
+<a href="../plugins_management/sop_002.png" target="_blank"> <img alt="界面002" src="../plugins_management/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>在搜尋欄位，輸入 cartogram ，下方就會出現與 cartogram 相關的套件：<br />
+<a href="../plugins_management/sop_003.png" target="_blank"> <img alt="界面003" src="../plugins_management/sop_003.png" /> </a> <br />
+<br><br></p>
+<p>找到要安裝的套件(cartogram)，然後點右下角的安裝套件(Install plugin)，安裝完後，上方會出現一條藍色的通知說已安裝完成：<br />
+<a href="../plugins_management/sop_004.png" target="_blank"> <img alt="界面004" src="../plugins_management/sop_004.png" /> </a> <br />
+<br><br></p>
+<p>於此類推，安裝 FlowMapper：<br />
+<a href="../plugins_management/sop_005.png" target="_blank"> <img alt="界面005" src="../plugins_management/sop_005.png" /> </a> <br />
+<br><br></p>
+<p>安裝過程中會出現一個小視窗說明正在安裝中：<br />
+<a href="../plugins_management/sop_006.png" target="_blank"> <img alt="界面006" src="../plugins_management/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>安裝完成後，可以在已安裝的頁面找到這些套件：<br />
+<a href="../plugins_management/sop_007.png" target="_blank"> <img alt="界面007" src="../plugins_management/sop_007.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../basic_workflow/" class="btn btn-neutral float-right" title="介面介紹-目錄">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../environment/" class="btn btn-neutral" title="基本環境"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../environment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../basic_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

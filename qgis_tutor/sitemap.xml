@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/introduction/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/introduction/download_install/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/introduction/environment/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/introduction/plugins_management/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/basic_workflow/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/insert_layer/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/projection_basic/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/encoding/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/attribute_manipulations/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/attribute_join/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/auto_zoom/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_workflow/save_files/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/basic_mapping/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_mapping/choropleth_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_mapping/bubble_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_mapping/dot_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_mapping/export_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_mapping/map_layout/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/intermediate_mapping/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/intermediate_mapping/pie_chart_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/intermediate_mapping/bar_chart_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/advance_mapping/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/advance_mapping/cartogram/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/advance_mapping/flow_map/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/advance_mapping/flow_map_2/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/basic_analysis/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_analysis/polygon_to_centroid/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/basic_analysis/dissolve/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/about/</loc>
+     <lastmod>2018-01-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>

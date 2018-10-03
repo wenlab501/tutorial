@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>點子圖 (dot) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u9ede\u5b50\u5716 (dot)";
+    var mkdocs_page_input_path = "basic_mapping/dot_map.md";
+    var mkdocs_page_url = "/basic_mapping/dot_map/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">點子圖 (dot)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#dot">點子圖 (dot)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">計算每一個鄉鎮需要產生的點數量</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">依據欄位產生隨機點圖層</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">繪製點子圖的點</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">再重新繪製一遍</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基本地圖繪製 &raquo;</li>
+        
+      
+    
+    <li>點子圖 (dot)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dot">點子圖 (dot)</h1>
+<p>點子圖是面資料呈現的一種方式，是透過用點的密度，來反映數值的大小。例如，想要繪製鄉鎮的人口數，可以在一個鄉鎮中撒上對應數量的點來反映密度。例如：假設以1個點表示1,000個人，則如果一個鄉鎮有50,000個人，就在鄉鎮中畫上50個點。</p>
+<p>因此，在QGIS中，點子圖的繪製需要有三個步驟：</p>
+<ol>
+<li>設定一個點與實際數值點反映比例 (例如 1:1000) ，並用以計算各個鄉鎮需要畫多少個點；</li>
+<li>在鄉鎮中撒對應數量的隨機點，並產生這個點圖層；</li>
+<li>將隨機點圖層繪製出來。</li>
+</ol>
+<p>以下將用 <a href="../../static/twn_population.zip">twn_population.shp(點擊下載)</a> 進行說明。</p>
+<h2 id="_1">計算每一個鄉鎮需要產生的點數量</h2>
+<p>匯入圖層：<br />
+<a href="../dot_map/sop_000.png" target="_blank"> <img alt="界面000" src="../dot_map/sop_000.png" /> </a> <br />
+以這個例子來說，是用鄉鎮點人口數資料進行點子圖繪製，並且用縣市邊界進行輔助視覺化。
+<br><br></p>
+<p>打開鄉鎮圖層點屬性表：
+<a href="../dot_map/sop_001.png" target="_blank"> <img alt="界面001" src="../dot_map/sop_001.png" /> </a> <br />
+<br><br></p>
+<p><a href="../../../basic_workflow/attribute_manipulations">打開編輯模式</a>，加入新的欄位以計算對應點點數量：
+<a href="../dot_map/sop_002.png" target="_blank"> <img alt="界面002" src="../dot_map/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>用點與實際數值點反映比例 (例如圖中是 1:50)，計算對應點點數量 (例如圖中是以年輕人口數(young 欄位)來計算對應點點數量)：<br />
+<a href="../dot_map/sop_003.png" target="_blank"> <img alt="界面003" src="../dot_map/sop_003.png" /> </a> <br />
+<br><br></p>
+<p>計算好點的數量，記得關閉編輯模式：
+<a href="../dot_map/sop_004.png" target="_blank"> <img alt="界面004" src="../dot_map/sop_004.png" /> </a> <br />
+<br><br></p>
+<h2 id="_2">依據欄位產生隨機點圖層</h2>
+<p>依據欄位產生隨機點的方式，是在 Vector--&gt;Research Tools--&gt;Random points inside polygons(varible)：
+<a href="../dot_map/sop_005.png" target="_blank"> <img alt="界面005" src="../dot_map/sop_005.png" /> </a> <br />
+注意，下拉選單還有另一個類似，但不是以欄位來作設定點數量點選項，要選上面提到的這個。
+<br><br></p>
+<p>跳出一個視窗，在 Input Layer 選 twn_population 圖層；sampling strategy 選 Points count；Number field 選前面算好的點數：
+<a href="../dot_map/sop_006.png" target="_blank"> <img alt="界面006" src="../dot_map/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>Random points 的欄位設設定產生的點圖層的路徑，預設是暫存檔，這裡可以選 Save to file：
+<a href="../dot_map/sop_007.png" target="_blank"> <img alt="界面007" src="../dot_map/sop_007.png" /> </a> <br />
+<br><br></p>
+<p>並設定儲存路徑與檔名：
+<a href="../dot_map/sop_008.png" target="_blank"> <img alt="界面008" src="../dot_map/sop_008.png" /> </a> <br />
+<br><br></p>
+<p>確認設定後，按下執行(Run):
+<a href="../dot_map/sop_009.png" target="_blank"> <img alt="界面009" src="../dot_map/sop_009.png" /> </a> <br />
+<br><br></p>
+<p>開始執行：
+<a href="../dot_map/sop_010.png" target="_blank"> <img alt="界面010" src="../dot_map/sop_010.png" /> </a> <br />
+<br><br></p>
+<p>執行中：
+<a href="../dot_map/sop_011.png" target="_blank"> <img alt="界面011" src="../dot_map/sop_011.png" /> </a> <br />
+<br><br></p>
+<p>產生出來的隨機點，會是一個圖層：
+<a href="../dot_map/sop_012.png" target="_blank"> <img alt="界面012" src="../dot_map/sop_012.png" /> </a> <br />
+<br><br></p>
+<h2 id="_3">繪製點子圖的點</h2>
+<p>打開點圖層的Properties，來到Style頁面，這是預設點樣態：
+<a href="../dot_map/sop_013.png" target="_blank"> <img alt="界面013" src="../dot_map/sop_013.png" /> </a> <br />
+<br><br></p>
+<p>預設的點圖層的樣式對於繪製點子圖來說，問題在於點太大。因此需要將點變小(Size 調小，例如設成 0.5)；另一方面，當點設定成很小，但若點點邊緣寬度相對粗，則會讓點看起來都是這邊緣的顏色，因此可以將這邊緣取消掉(將Outline style從原來的Solid Line 改成 No Pen)：
+<a href="../dot_map/sop_014.png" target="_blank"> <img alt="界面014" src="../dot_map/sop_014.png" /> </a> <br />
+<br><br></p>
+<p>確定沒問題後，點 Apply 與 OK：
+<a href="../dot_map/sop_015.png" target="_blank"> <img alt="界面015" src="../dot_map/sop_015.png" /> </a> <br />
+<br><br></p>
+<p>這時候的點子圖已初步完成：
+<a href="../dot_map/sop_016.png" target="_blank"> <img alt="界面016" src="../dot_map/sop_016.png" /> </a> <br />
+<br><br></p>
+<p>桃園與附近地區的局部放大圖：
+<a href="../dot_map/sop_017.png" target="_blank"> <img alt="界面017" src="../dot_map/sop_017.png" /> </a> <br />
+從上述的結果來看，這個點的反映比例似乎太小，導致點太多。下一個章節將試著將比例作調整，再繪製出圖。
+<br><br></p>
+<h2 id="_4">再重新繪製一遍</h2>
+<p>在局部觀察時似乎還不錯，不過如果在全台灣的範圍下觀察，點太多。
+所以需要再進一步作調整。</p>
+<p>這回計算將沿用上面產生的欄位，計算點比例是 1個點代表 1000人 (1:1000):
+<a href="../dot_map/sop_018.png" target="_blank"> <img alt="界面018" src="../dot_map/sop_018.png" /> </a> <br />
+<br><br></p>
+<p>計算完成，記得關閉編輯模式：
+<a href="../dot_map/sop_019.png" target="_blank"> <img alt="界面019" src="../dot_map/sop_019.png" /> </a> <br />
+<br><br></p>
+<p>再次設定產生隨機點：
+<a href="../dot_map/sop_020.png" target="_blank"> <img alt="界面020" src="../dot_map/sop_020.png" /> </a> <br />
+<br><br></p>
+<p>正在產生隨機點中：
+<a href="../dot_map/sop_021.png" target="_blank"> <img alt="界面021" src="../dot_map/sop_021.png" /> </a> <br />
+<br><br></p>
+<p>產生好的隨機點預設圖層：
+<a href="../dot_map/sop_022.png" target="_blank"> <img alt="界面022" src="../dot_map/sop_022.png" /> </a> <br />
+<br><br></p>
+<p>將點的大小設定成較小的樣式，並且把邊緣拿掉;
+<a href="../dot_map/sop_023.png" target="_blank"> <img alt="界面023" src="../dot_map/sop_023.png" /> </a> <br />
+<br><br></p>
+<p>確認修改好的樣式，若有需要改點的顏色也可以在這邊改 Fill 的顏色：
+<a href="../dot_map/sop_024.png" target="_blank"> <img alt="界面024" src="../dot_map/sop_024.png" /> </a> <br />
+<br><br></p>
+<p>然後，點子圖就初步完成了：
+<a href="../dot_map/sop_025.png" target="_blank"> <img alt="界面025" src="../dot_map/sop_025.png" /> </a> <br />
+<br><br></p>
+<p>臺北地區局部點子圖的樣子：
+<a href="../dot_map/sop_026.png" target="_blank"> <img alt="界面026" src="../dot_map/sop_026.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../export_map/" class="btn btn-neutral float-right" title="地圖輸出 (export)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../bubble_map/" class="btn btn-neutral" title="泡泡圖 (bubble)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../bubble_map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../export_map/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

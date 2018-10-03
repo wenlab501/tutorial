@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>屬性的操作 (attributes) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5c6c\u6027\u7684\u64cd\u4f5c (attributes)";
+    var mkdocs_page_input_path = "basic_workflow/attribute_manipulations.md";
+    var mkdocs_page_url = "/basic_workflow/attribute_manipulations/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">屬性的操作 (attributes)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#attributes">屬性的操作 (attributes)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">屬性的編輯</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">新增欄位</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">計算欄位</a></li>
+        
+            <li><a class="toctree-l4" href="#select-by-attributes">依屬性選取空間物件 (select by attributes)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/">基本地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/choropleth_map/">分層設色圖 (choropleth)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_mapping/map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>介面介紹 &raquo;</li>
+        
+      
+    
+    <li>屬性的操作 (attributes)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="attributes">屬性的操作 (attributes)</h1>
+<p>屬性表所記錄與呈現的是每一個空間物件 (spatial features) 的屬性資訊。例如，以醫院點資料來說，屬性可以是每一家醫院的名稱、醫院大小規模如病床數、醫師數等；或是以鄉鎮資料來說，屬性可以是每一個鄉鎮(polygon)的面積、人口數、家戶數、扶養比等。</p>
+<p>我們常常可能會需要對屬性表進行一些計算處理、或是針對屬性進行空間物件的選取等。以下主要用<a href="../../static/twn_population.zip">鄉鎮人口資料(點擊下載)</a>作說明。</p>
+<h2 id="_1">屬性的編輯</h2>
+<p>要對屬性表進行調整、新增、刪除、值的計算等過程之前，需要將編輯模式打開，也就是把在屬性表工具欄中的第一個選項點開：<br />
+<a href="../attribute_manipulations/sop_000.png" target="_blank"> <img alt="界面000" src="../attribute_manipulations/sop_000.png" /> </a> <br />
+注意，在背景的圖層的邊框出現紅色的符號(上圖中已連成線)，表示其實這些點(vertex) 都可以被移動。如果只需要調整屬性表，記得不要調整、移動到這些點；在完成編輯後要關閉編輯模式。
+<br><br></p>
+<h2 id="_2">新增欄位</h2>
+<p>新增欄位的操作是，在工具欄的倒數第四個按鈕，即符號的下方區域有一塊黃色的按鈕 (New field, 快捷鍵為 Ctrl+W)：<br />
+<a href="../attribute_manipulations/sop_001.png" target="_blank"> <img alt="界面001" src="../attribute_manipulations/sop_001.png" /> </a> <br />
+<br><br></p>
+<p>會出現一個小視窗，設定欄位名稱、資料格式(整數(無小數點)、實數(有小數點)) ，下方的欄位是設定實數精準度等資訊，如果沒有特殊需要可以使用預設的值：<br />
+<a href="../attribute_manipulations/sop_002.png" target="_blank"> <img alt="界面002" src="../attribute_manipulations/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>這時候屬性表的最後面(最右邊) 會出現剛剛新增的欄位，所有空間物件的這個屬性都是 NULL：<br />
+<a href="../attribute_manipulations/sop_003.png" target="_blank"> <img alt="界面003" src="../attribute_manipulations/sop_003.png" /> </a> <br />
+<br><br></p>
+<h2 id="_3">計算欄位</h2>
+<p>在新增欄位後，或如果要對既有欄位進行重新計算，這時候需要在屬性表上面，編輯模式下才出現的那欄的第一項，下拉選單找到要計算的目標欄位，然後點一下在右邊的等號右邊的 Sigma 符號按鈕，出現以下視窗：<br />
+<a href="../attribute_manipulations/sop_004.png" target="_blank"> <img alt="界面004" src="../attribute_manipulations/sop_004.png" /> </a> <br />
+<br><br></p>
+<p>這視窗的左邊是計算的方程式，中間是一些計算過程所需要的東西，包括各個欄位，右邊則是一些輔助資訊。
+<a href="../attribute_manipulations/sop_005.png" target="_blank"> <img alt="界面005" src="../attribute_manipulations/sop_005.png" /> </a> <br />
+教學是要計算各鄉鎮的<a href="https://www.moi.gov.tw/stat/chart.aspx">老化指數</a>，老化指數是指每100個65歲以上人口對14歲以下人口之比，指數越高，代表高老齡化情況越嚴重。這個shapefile 檔案所有的屬性資料欄位是每5歲年齡組的人口數。因此，在計算14歲以下的人口數時，需要將0-5歲、5-10歲、10-15歲的欄位依鄉鎮相加。
+<br><br></p>
+<p>點OK後回到前一頁面。這時候，等號右邊出現的是剛剛設定的計算方程式。這時候再按下其右方的更新按鈕(Update All)：<br />
+<a href="../attribute_manipulations/sop_006.png" target="_blank"> <img alt="界面006" src="../attribute_manipulations/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>然後欄位中的值從原來的 NULL 轉成計算好的數值：<br />
+<a href="../attribute_manipulations/sop_007.png" target="_blank"> <img alt="界面007" src="../attribute_manipulations/sop_007.png" /> </a> <br />
+<br><br></p>
+<p>跟前述一樣，計算好 65歲以上人口數，然後再將 65歲以上 / 15歲以下 * 100 得到老化指數：<br />
+<a href="../attribute_manipulations/sop_008.png" target="_blank"> <img alt="界面008" src="../attribute_manipulations/sop_008.png" /> </a> <br />
+<br><br></p>
+<p>確認好該計算的欄位都完成後，點一下儲存編輯 (工具欄的第三個按鈕)，然後按一下第一個按鈕將編輯模式關閉：<br />
+<a href="../attribute_manipulations/sop_009.png" target="_blank"> <img alt="界面009" src="../attribute_manipulations/sop_009.png" /> </a> <br />
+<br><br></p>
+<p>這時候編輯模式已關閉，注意底下的紅色邊框符號也一併關閉了：<br />
+<a href="../attribute_manipulations/sop_010.png" target="_blank"> <img alt="界面010" src="../attribute_manipulations/sop_010.png" /> </a> <br />
+<br><br></p>
+<h2 id="select-by-attributes">依屬性選取空間物件 (select by attributes)</h2>
+<p>我們有時候會需要針對屬性會進行空間物件的選取。比方說，將老化指數高於50的地方選取出來；或是從台灣鄉鎮圖層選取出臺北市的鄉鎮。</p>
+<p>這部分並沒有要編輯屬性表，所以不需要打開編輯模式。</p>
+<p>在上方工具欄，點開第七個按鈕，也就是按鈕的背後有一個黃色方框，前面有一個 Sigma 符號：<br />
+<a href="../attribute_manipulations/sop_011.png" target="_blank"> <img alt="界面011" src="../attribute_manipulations/sop_011.png" /> </a> <br />
+<br><br></p>
+<p>出現這個視窗。舉例來說，需要選取「縣市欄位」為「臺北市」的的 rows，則透過中間區塊的 Fields and Values，找到縣市欄位的欄位名稱 ("COUNTY") 點兩下，然後點左方上面的等號 (=)，在右邊下方的區塊中點 all unique ， 然後找到"臺北市" 點兩下。 整個 Expression 是： "COUNTY" = '臺北市' 。 這部分也可以透過直接用鍵盤輸入，不過為了避免一些細節錯誤，所以可以的話直接用點擊的方式來產生會比較好。最後點右下角的 Select 選取：<br />
+<a href="../attribute_manipulations/sop_012.png" target="_blank"> <img alt="界面012" src="../attribute_manipulations/sop_012.png" /> </a> <br />
+<br><br></p>
+<p>回到屬性表，這時候已經選好了臺北市的鄉鎮。可以再進一步按左下角的按鈕 (預設為 Show All Features)，選取 Show Selected Features，則會出現只有被選取的 rows：<br />
+<a href="../attribute_manipulations/sop_013.png" target="_blank"> <img alt="界面013" src="../attribute_manipulations/sop_013.png" /> </a> <br />
+<br><br></p>
+<p>回到 QGIS 主畫面，臺北市的鄉鎮被選取 (呈黃色)：<br />
+<a href="../attribute_manipulations/sop_014.png" target="_blank"> <img alt="界面014" src="../attribute_manipulations/sop_014.png" /> </a> <br />
+<br><br></p>
+<h3 id="_4">取消選取</h3>
+<p>主畫面的上方工具欄中，有一個是按鈕的符號是一塊黃色方塊以及一個紅色有取消符號方塊的按鈕 (Deselect Features from All Layers)，按一下：
+<a href="../attribute_manipulations/sop_015.png" target="_blank"> <img alt="界面015" src="../attribute_manipulations/sop_015.png" /> </a> <br />
+<br><br></p>
+<p>原本所有被選取起來的空間物件都被取消了：<br />
+<a href="../attribute_manipulations/sop_016.png" target="_blank"> <img alt="界面016" src="../attribute_manipulations/sop_016.png" /> </a> <br />
+<br><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../attribute_join/" class="btn btn-neutral float-right" title="屬性的連結 (join)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../encoding/" class="btn btn-neutral" title="中文編碼 (encoding)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../encoding/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../attribute_join/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

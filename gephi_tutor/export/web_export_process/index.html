@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="陳威全">
+  
+  <title>網頁輸出-過程 - Gephi 學習站</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "網頁輸出-過程";
+    var mkdocs_page_input_path = "export/web_export_process.md";
+    var mkdocs_page_url = "/export/web_export_process/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gephi 學習站</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">首頁</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>準備作業</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/download/">下載</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/install/">安裝</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../prepare/interface/">介面</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>資料處理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/import/">匯入</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/analysis/">分析</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../process/filter/">過濾</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>網絡設計</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/layout/">佈局</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../design/symbolization/">符號</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>存取輸出</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../save/">讀寫</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../export/">輸出</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_export/">網頁輸出-成果</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">網頁輸出-過程</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">網頁輸出過程</a></li>
+                
+                    <li><a class="toctree-l4" href="#sigmaexporter-plugin">安裝 SigmaExporter plugin</a></li>
+                
+                    <li><a class="toctree-l4" href="#gephi">從 Gephi 輸出</a></li>
+                
+                    <li><a class="toctree-l4" href="#python">設定好 python 環境</a></li>
+                
+                    <li><a class="toctree-l4" href="#server">開啓最基本的 server</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>專題-FB</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/download_data/">下載資料</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/install_multimode_plugin/">安裝套件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/two_mode/">2-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/filter_plus_appearence/">過濾與設計功能的搭配使用</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/multimode_transform/">mode 轉換</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/one_mode/">1-mode 操作</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../netvizz/exporting_graph/">輸出</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">關於</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gephi 學習站</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>存取輸出 &raquo;</li>
+        
+      
+    
+    <li>網頁輸出-過程</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">網頁輸出過程</h1>
+<p><em>製作中</em></p>
+<h2 id="sigmaexporter-plugin">安裝 SigmaExporter plugin</h2>
+<p><img alt="export web" src="../../figs/export_web/step_04.png" /></p>
+<p><img alt="export web" src="../../figs/export_web/step_05.png" /></p>
+<h2 id="gephi">從 Gephi 輸出</h2>
+<p>因爲 網頁的座標軸部分，Y軸是從上往下增加的，與一般地圖的方向相反，所以需要先將 Y 座標做一次上下轉換，即乘上負號，產生新的欄位。
+<img alt="export web" src="../../figs/export_web/step_01.png" /></p>
+<p>geo layout 設定的時候選對調後的 Y 欄位 
+<img alt="export web" src="../../figs/export_web/step_02.png" /></p>
+<p>儲存圖檔
+<img alt="export web" src="../../figs/export_web/step_03.png" /></p>
+<p>File --&gt; Export --&gt; Sigma js templete... (安裝 上述提到的 plugin 後會出現的選項)
+<img alt="export web" src="../../figs/export_web/step_07.png" /></p>
+<p>做一些基本設定
+<img alt="export web" src="../../figs/export_web/step_08.png" /></p>
+<p>選擇儲存位置
+<img alt="export web" src="../../figs/export_web/step_09.png" /></p>
+<p><img alt="export web" src="../../figs/export_web/step_10.png" /></p>
+<p>完成
+<img alt="export web" src="../../figs/export_web/step_11.png" /></p>
+<p><img alt="export web" src="../../figs/export_web/step_12.png" /></p>
+<p>後續的步驟只是讓電腦可以開一個暫時的 server。若要上傳到伺服器 (已設定好 apache/nginx/lighttpd 之類的，如 臺大 homepage 空間)，則可以直接將這些輸出好的檔案上傳。</p>
+<h2 id="python">設定好 python 環境</h2>
+<p>打開設定環境變數的工具
+<img alt="export web" src="../../figs/export_web/step_14.png" /></p>
+<p>找到並準備編輯 Path
+<img alt="export web" src="../../figs/export_web/step_15.png" /></p>
+<p>找到系統的 python，任何 python 版本都可以，複製其資料夾位置 (例如 C://Python27/)
+<img alt="export web" src="../../figs/export_web/step_16.png" /></p>
+<p>將這幾個資料夾位置合併到原來的 path 參數後面，用分號分隔
+<img alt="export web" src="../../figs/export_web/step_18.png" /></p>
+<p>貼到 Path 上，設定完成
+<img alt="export web" src="../../figs/export_web/step_19.png" /></p>
+<h2 id="server">開啓最基本的 server</h2>
+<p>打開 cmd
+<img alt="export web" src="../../figs/export_web/step_20.png" /></p>
+<p>移動到 sigma js 輸出的位置。直接用 F: 之類來更換分隔槽 (從 C: 切換到 F:)，用 cd 資料夾相對位置移動到 sigmajs 輸出的資料夾。
+輸入 python -m SimpleHTTPServer
+<img alt="export web" src="../../figs/export_web/step_21.png" /></p>
+<p>到 http://localhost:8000 看成果
+<img alt="export web" src="../../figs/export_web/step_22.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../netvizz/download_data/" class="btn btn-neutral float-right" title="下載資料">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../web_export/" class="btn btn-neutral" title="網頁輸出-成果"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>國立臺灣大學-地理環境資源學系-<a href="http://wenlab.geog.ntu.edu.tw">地理計算科學研究室</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../web_export/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../netvizz/download_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

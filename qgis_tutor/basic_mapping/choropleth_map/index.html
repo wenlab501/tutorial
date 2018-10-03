@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>分層設色圖 (choropleth) - Using QGIS - 人口地圖繪製</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5206\u5c64\u8a2d\u8272\u5716 (choropleth)";
+    var mkdocs_page_input_path = "basic_mapping/choropleth_map.md";
+    var mkdocs_page_url = "/basic_mapping/choropleth_map/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Using QGIS - 人口地圖繪製</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">首頁</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入門基礎</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../introduction/">入門基礎-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/download_install/">下載與安裝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/environment/">基本環境</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/plugins_management/">套件安裝 (plugins)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">介面介紹</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/">介面介紹-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/insert_layer/">加入向量圖層 (import)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/projection_basic/">投影 (projection)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/encoding/">中文編碼 (encoding)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_manipulations/">屬性的操作 (attributes)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/attribute_join/">屬性的連結 (join)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/auto_zoom/">自動縮放 (zoom)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_workflow/save_files/">檔案儲存與輸出 (save)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">基本地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">基本地圖繪製-目錄</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">分層設色圖 (choropleth)</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#choropleth">分層設色圖 (choropleth)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">資料觀察</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">進行分層設色繪製</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">加入上層分區邊界</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bubble_map/">泡泡圖 (bubble)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dot_map/">點子圖 (dot)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../export_map/">地圖輸出 (export)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../map_layout/">地圖排版 (layout)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">統計地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/">統計地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/pie_chart_map/">地圖上的圓餅圖 (pie chart)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../intermediate_mapping/bar_chart_map/">地圖上的柱狀圖 (bar chart)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">進階地圖繪製</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/">進階地圖繪製-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/cartogram/">變形地圖 (Cartogram)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map/">呈現空間流動 (FlowMapper) -- 資料準備</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../advance_mapping/flow_map_2/">呈現空間流動 (FlowMapper) -- 繪製流動</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">圖資處理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/">圖資處理-目錄</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/polygon_to_centroid/">面資料找中心點(centroid)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../basic_analysis/dissolve/">依欄位合併(dissolve)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">關於</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Using QGIS - 人口地圖繪製</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基本地圖繪製 &raquo;</li>
+        
+      
+    
+    <li>分層設色圖 (choropleth)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="choropleth">分層設色圖 (choropleth)</h1>
+<p>分層設色圖 (面量圖) 是一種對於面資料的地圖呈現方式，其概念是把數值根據分層，以不同的顏色(通常為漸層色) 塗到各個面物件(polygon) 上，以呈現每一個面的該數值的高低，例如將台灣的人口密度分成五層，繪製分層設色圖來觀察最高或最低的那一層主要都集中在哪裡。</p>
+<h2 id="_1">資料觀察</h2>
+<p>本次教學將用 <a href="../../static/twn_population.zip">twn_population.shp(點擊下載)</a> 這個圖層作說明，是一個全臺灣鄉鎮面資料圖層：<br />
+<a href="../choropleth_map/sop_000.png" target="_blank"> <img alt="界面000" src="../choropleth_map/sop_000.png" /> </a> <br />
+<br><br></p>
+<p>打開其屬性表，可以發現其中有很多數值欄位：<br />
+<a href="../choropleth_map/sop_001.png" target="_blank"> <img alt="界面001" src="../choropleth_map/sop_001.png" /> </a> <br />
+<br><br></p>
+<h2 id="_2">進行分層設色繪製</h2>
+<p>對圖層點右鍵，選擇 properties：<br />
+<a href="../choropleth_map/sop_002.png" target="_blank"> <img alt="界面002" src="../choropleth_map/sop_002.png" /> </a> <br />
+<br><br></p>
+<p>進入第二個分頁 (Style)，在點開第一個下拉選單(預設為 Single symbol選項)：
+<a href="../choropleth_map/sop_003.png" target="_blank"> <img alt="界面003" src="../choropleth_map/sop_003.png" /> </a> <br />
+<br><br></p>
+<p>在下拉選單中，選 Graduated (漸層)：<br />
+<a href="../choropleth_map/sop_004.png" target="_blank"> <img alt="界面004" src="../choropleth_map/sop_004.png" /> </a> <br />
+<br><br></p>
+<p>在 Column 中，選取所要繪製的欄位(例如，繪製0-5歲年齡的人口數)；然後在中間的空白區塊下方的 Mode 選所要進行「分層」的模式，這裡舉 Pretty Breaks 為例，預設是 Equal Interval，這些都是分層的方法；然後點 Classify ， 中間的 Classes 會出現分好層的結果：<br />
+<a href="../choropleth_map/sop_005.png" target="_blank"> <img alt="界面005" src="../choropleth_map/sop_005.png" /> </a> <br />
+<br><br></p>
+<p>這裡預設是用藍色進行漸層色的呈現，透過 Color ramp 的下拉選單可以選取適當及偏好的漸層色組：<br />
+<a href="../choropleth_map/sop_006.png" target="_blank"> <img alt="界面006" src="../choropleth_map/sop_006.png" /> </a> <br />
+<br><br></p>
+<p>選好顏色後，分層的顏色也設定好了；確定設定好後，點 Apply 套用，然後點 OK 返回主畫面：<br />
+<a href="../choropleth_map/sop_007.png" target="_blank"> <img alt="界面007" src="../choropleth_map/sop_007.png" /> </a> <br />
+<br><br></p>
+<p>這時候，分層設色的地圖已經初步完成：<br />
+<a href="../choropleth_map/sop_008.png" target="_blank"> <img alt="界面008" src="../choropleth_map/sop_008.png" /> </a> <br />
+<br><br></p>
+<h2 id="_3">加入上層分區邊界</h2>
+<p>上述的分層設色圖是鄉鎮分區的結果，但有時候這圖看起來會很複雜，如果能加上<a href="../../static/taiwan_county.zip">縣市邊界(點擊下載)</a>輔助呈現地圖，可以讓讀者更容易的看出有意義的分佈型態。</p>
+<p>要加入縣市分區，就需要設定不同的分區用不同的分區邊界來呈現。
+所以第一步是回到上述分層設色的視窗，點 Symbol 右邊的按鈕(Change...) ，然後在跳出來的小視窗，設定鄉鎮層級的面的樣式，例如這裡將其邊界改用虛線來呈現：<br />
+<a href="../choropleth_map/sop_009.png" target="_blank"> <img alt="界面009" src="../choropleth_map/sop_009.png" /> </a> <br />
+在 Outline style 從 Solid Line 改成 Dash Line。
+<br><br></p>
+<p>按 OK 後，回到設定頁面，這時候可以看到分層的顏色的邊框是改成虛線，點套用讓設定套用到地圖上：<br />
+<a href="../choropleth_map/sop_010.png" target="_blank"> <img alt="界面010" src="../choropleth_map/sop_010.png" /> </a> <br />
+<br><br></p>
+<p>再按確認回到主畫面，這時候的鄉鎮邊界已經是虛線：<br />
+<a href="../choropleth_map/sop_011.png" target="_blank"> <img alt="界面011" src="../choropleth_map/sop_011.png" /> </a> <br />
+<br><br></p>
+<p>將縣市圖層加到圖層列表中：<br />
+<a href="../choropleth_map/sop_012.png" target="_blank"> <img alt="界面012" src="../choropleth_map/sop_012.png" /> </a> <br />
+預設是某一中顏色，在圖層列表中，確認這圖層是在鄉鎮圖層的上面，在地圖上才會疊在原來的圖層上面，如上圖。
+<br><br></p>
+<p>接下來需要作的是將這個圖層的顏色設定成無色。來到這個圖層的 Properties--&gt;Style。預設是 Single symbol，畫面原來是停留在 Fill ，選其下方的 Simple fill，下面的選項會隨之改成下圖的樣子；在其下方的 Fill style ，下拉選單中，從原來的 Solid 改成 No Brush：<br />
+<a href="../choropleth_map/sop_013.png" target="_blank"> <img alt="界面013" src="../choropleth_map/sop_013.png" /> </a> <br />
+<br><br></p>
+<p>原來的 Single symbol 頁面右上方的圖示已轉成空心只有邊框的型態，點套用(Apply)及OK：<br />
+<a href="../choropleth_map/sop_014.png" target="_blank"> <img alt="界面014" src="../choropleth_map/sop_014.png" /> </a> <br />
+<br><br></p>
+<p>地圖這時候就修改好了，縣市邊界也已套疊完成；不過，縣市的邊界似乎有些太細：<br />
+<a href="../choropleth_map/sop_015.png" target="_blank"> <img alt="界面015" src="../choropleth_map/sop_015.png" /> </a> <br />
+<br><br></p>
+<p>如果需要進一步修改邊框粗細，也可以在前面的那個界面，透過 Outline style 底下(需要把界面往下拉) 的Outline width 中增加邊界的厚度，例如下圖加大到 0.5mm 的厚度：<br />
+<a href="../choropleth_map/sop_016.png" target="_blank"> <img alt="界面016" src="../choropleth_map/sop_016.png" /> </a> <br />
+<br><br></p>
+<p>套用確認後，地圖就改好了：<br />
+<a href="../choropleth_map/sop_017.png" target="_blank"> <img alt="界面017" src="../choropleth_map/sop_017.png" /> </a> <br />
+<br><br></p>
+<p>分層設色圖也就畫好了。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bubble_map/" class="btn btn-neutral float-right" title="泡泡圖 (bubble)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="基本地圖繪製-目錄"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../bubble_map/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
